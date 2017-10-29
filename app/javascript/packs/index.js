@@ -6,5 +6,3 @@ import App from '../react/src/App';
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<App />, document.getElementById('app'));
 })
-
-export default Index

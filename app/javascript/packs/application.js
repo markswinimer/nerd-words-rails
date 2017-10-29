@@ -6,5 +6,11 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+//= require jquery
+//= require jquery_ujs
+//= require foundation
+jQuery(document).ready(function($) {
+$(document).foundation();
+});
 
 console.log('Hello World from Webpacker')
