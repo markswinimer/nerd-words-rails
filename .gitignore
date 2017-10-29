@@ -22,3 +22,11 @@
 /node_modules
 
 /coverage
+
+.env
+
+.DS_Store
+/app/.DS_Store
+
+# Ignore application configuration
+/config/application.yml
