@@ -1,4 +1,5 @@
 import React from 'react'
+import HomeLinks from '../components/HomeLinks.js'
 
 class HomeContainer extends React.Component {
   constructor(props) {
@@ -10,7 +11,12 @@ class HomeContainer extends React.Component {
   }
   render() {
     return(
-      <div>HOME PAGE</div>
+      <div>
+          <div className="small-12 large-12 welcome">
+            <div className="title">Nerd Words</div>
+          </div>
+          <HomeLinks />
+        </div>
     )
   }
 }

@@ -1,0 +1,37 @@
+.welcome {
+  color: #F6F6F6;
+  background-color: #950404;
+  height: 30vh;
+  border-bottom: 4px solid #333333;
+  border-top: 4px solid white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.title {
+  color: black;
+  font-family: 'Cinzel', serif;
+  font-size: 100px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.homeLink {
+  margin-right: 100px;
+  margin-left: 100px;
+  border: 3px solid black;
+  height: 200px;
+  width: 250px;
+  background-color: #F6F6F6;
+}
+
+.homeLinkContainer {
+  height: 450px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 4px solid black;
+  background-color: #fff9e6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
