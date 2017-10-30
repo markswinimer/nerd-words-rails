@@ -1,6 +1,6 @@
 .welcome {
   color: #F6F6F6;
-  background-color: #950404;
+  background-color: #a02121;
   height: 30vh;
   border-bottom: 4px solid #333333;
   border-top: 4px solid white;
@@ -9,7 +9,8 @@
   justify-content:center;
 }
 .title {
-  color: black;
+  text-shadow: 1px 1px .5px white;
+  color: #1a1a1a;
   font-family: 'Cinzel', serif;
   font-size: 100px;
   display:flex;
@@ -19,18 +20,28 @@
 .homeLink {
   margin-right: 100px;
   margin-left: 100px;
-  border: 3px solid black;
+  border: 1.5px solid #1a1a1a;
   height: 200px;
   width: 250px;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 2px #000000;
+  border-radius: 10px;
+  color: white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background-color: #F6F6F6;
+  background-image: url("https://cdn.pixabay.com/photo/2015/02/07/02/17/paper-626781_1280.jpg");
+  background-position: center;
 }
 
 .homeLinkContainer {
   height: 450px;
   padding-top: 50px;
   padding-bottom: 50px;
-  border-bottom: 4px solid black;
-  background-color: #fff9e6;
+  border-bottom: 4px solid #1a1a1a;
+  background-color: #F6F6F6;
   display:flex;
   align-items:center;
   justify-content:center;
