@@ -4,15 +4,22 @@ import HomeContainer from './containers/HomeContainer.js'
 import NavBar from './components/NavBar.js'
 
 
-const App = props => {
-  return(
-    <div className="appContainer">
-    <Router history={browserHistory}>
-      <Route path='/' component={NavBar} >
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+  render() {
+    return(
+      <div className="appContainer">
+        <Router history={browserHistory}>
+          <Route path='/' component={NavBar} >
           <IndexRoute component={HomeContainer} />
-      </Route>
-    </Router>
+        </Route>
+      </Router>
     </div>
-  )
+    )
+  }
 }
 export default App

@@ -7,13 +7,15 @@ const NavBar = props => {
       <nav className="top-bar" data-topbar role="navigation">
         <ul className="title-area">
           <li className="name">
-        <h1>  <Link to='/'> HOME </Link></h1>
+        <h1>  <Link to='/'> Nerd Words </Link></h1>
           </li>
           <li className="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
         <section className="top-bar-section">
           <ul className="right">
-            <li className="active"><a href="#">Right Button Active</a></li>
+            <li className="active sign-in"><a href="/users/sign_in">Log In</a></li>
+            <li className="active sign-in"><a href="/users/sign_out">Log Out</a></li>
+            <li className="active"><a href="/users/sign_up">Sign Up</a></li>
             <li className="has-dropdown">
               <a href="#">Right Button Dropdown</a>
               <ul className="dropdown">

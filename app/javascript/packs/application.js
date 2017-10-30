@@ -9,8 +9,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-jQuery(document).ready(function($) {
-$(document).foundation();
-});
+//= require_tree .
 
-console.log('Hello World from Webpacker')
+$(function(){ $(document).foundation(); });
