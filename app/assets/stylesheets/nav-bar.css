@@ -1,0 +1,4 @@
+.active, a.active, li.active {
+  padding: 0 5px;
+  background-color: #a02121;
+}

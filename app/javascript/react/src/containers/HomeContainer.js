@@ -5,10 +5,23 @@ class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      current_user: null
     }
     //bindings
   }
+
+  componentDidMount() {
+    fetch('/api/v1/users.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ current_user: data.user });
+    })
+  }
+
   render() {
     return(
       <div>
