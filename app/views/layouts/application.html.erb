@@ -23,9 +23,12 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
+          <% if user_signed_in? %>
+            <li class="active sign-in"><a href="/users/sign_out">Log Out</a></li>
+          <% else %>
           <li class="active sign-in"><a href="/users/sign_in">Log In</a></li>
-          <li class="active sign-in"><a href="/users/sign_out">Log Out</a></li>
-          <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+            <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+          <% end %>
           <li class="has-dropdown">
             <a href="#">Right Button Dropdown</a>
             <ul class="dropdown">
