@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeLinks from '../components/HomeLinks.js'
+import { Link } from 'react-router'
 
 class HomeContainer extends React.Component {
   constructor(props) {
