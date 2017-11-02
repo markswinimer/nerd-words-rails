@@ -9,7 +9,9 @@ class LibraryMenuContainer extends React.Component {
   }
 
   render() {
-    let myLibraries = this.props.user_info.libraries.map(library => {
+    let myLibraries = [];
+    if(this.props.user_info.libraries) {
+    myLibraries = this.props.user_info.libraries.map(library => {
       return(
         <ListElement
           handleClick={this.props.handleClick}
@@ -20,6 +22,7 @@ class LibraryMenuContainer extends React.Component {
         />
       )
     })
+  }
     let wordList;
     if(this.props.currentLibrary.wordList) {
      wordList = this.props.currentLibrary.wordList.map(word => {
