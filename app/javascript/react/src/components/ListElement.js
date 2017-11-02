@@ -1,18 +1,13 @@
 import React from 'react'
 
-class ListElement extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
+const ListElement = props => {
+  let handleClick = () => {
+    props.handleClick(props.id)
   }
-  render() {
-    return(
-      <div>{this.props.name}
-        <hr />
-      </div>
-    )
-  }
+  return(
+    <div onClick={handleClick}>{props.name}
+      <hr />
+    </div>
+  )
 }
 export default ListElement

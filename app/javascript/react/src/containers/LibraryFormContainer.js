@@ -71,7 +71,10 @@ class LibraryFormContainer extends React.Component {
       <div>
         <div className="small-12 large-12 libraryContainer">
           <div className="small-12 large-12 columns libraryLabels">
-            <h3>List Name...</h3>
+            <WordInputField
+              placeholder="List Name..."
+              value={this.state.libraryTitle}
+            />
           </div>
         <div className="large-12 columns library">
         <div className="small-8 large-8 columns leftLibraryForm">

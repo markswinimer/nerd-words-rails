@@ -1,6 +1,5 @@
 import React from 'react'
 import ListElement from '../components/ListElement.js'
-import WordList from '../components/WordList.js'
 
 class LibraryMenuContainer extends React.Component {
   constructor(props) {
@@ -9,13 +8,11 @@ class LibraryMenuContainer extends React.Component {
     }
   }
 
-
-
   render() {
-    debugger
     let myLibraries = this.props.user_info.libraries.map(library => {
       return(
         <ListElement
+          handleClick={this.props.handleClick}
           key={library.id}
           id={library.id}
           name={library.name}
@@ -24,8 +21,8 @@ class LibraryMenuContainer extends React.Component {
       )
     })
     let wordList;
-    if(this.props.currentLibrary) {
-     wordList = this.props.currentLibrary.map(word => {
+    if(this.props.currentLibrary.wordList) {
+     wordList = this.props.currentLibrary.wordList.map(word => {
       return(
         <ListElement
           key={word.id}

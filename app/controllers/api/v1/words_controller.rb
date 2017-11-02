@@ -3,7 +3,7 @@ class Api::V1::WordsController < ApplicationController
   def create
     body = JSON.parse(request.body.read)
     user = User.find(1)
-    name = "NEWLIB"
+    name = "Scooby Doo"
     if Library.where(name: name).blank?
       Library.create!(name: name, user: user)
     end
