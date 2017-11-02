@@ -14,8 +14,8 @@ class HomeLinks extends React.Component {
     return(
       <div className="homeLinkContainer">
         <Link to='/library/new'><div className="small-4 large-4 columns homeLink">CREATE</div></Link>
-        <Link to='/'><div className="small-4 large-4 columns homeLink">DISCOVER</div></Link>
-        <Link to='/'><div className="small-4 large-4 columns homeLink">PLAY</div></Link>
+        <Link to='/share'><div className="small-4 large-4 columns homeLink">SHARE</div></Link>
+        <Link to='/play'><div className="small-4 large-4 columns homeLink">PLAY</div></Link>
       </div>
     )
   }

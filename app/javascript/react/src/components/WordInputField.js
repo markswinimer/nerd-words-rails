@@ -6,8 +6,11 @@ const WordInputField = props => {
       <input
         placeholder={props.placeholder}
         name={props.name}
+        onChange={props.handleChange}
         type='text'
+        id={props.id}
         value={props.content}
+        style={{margin: 0}}
       />
     </label>
   )

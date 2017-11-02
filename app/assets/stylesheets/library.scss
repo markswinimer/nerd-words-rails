@@ -1,0 +1,111 @@
+.createLibraryContainer {
+  padding-right: 20px;
+}
+.libraryContainer {
+  background-color: #E8E8E8;
+  padding: 0;
+  margin: 0;
+}
+.leftContainer {
+  height: 800px;
+}
+.libraryLabels {
+  background-color: #E8E8E8;
+  padding: 0;
+  margin-top: 20px;
+  padding-left: 20px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 2px;
+}
+
+.buttons{
+  height: 80px;
+  padding-top: 13px;
+  background-color: #E8E8E8;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 2px;
+}
+.createButton {
+  margin-right: 10px;
+}
+
+.library {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 2px;
+  background-color: #E8E8E8;
+  max-height: 500px;
+  padding-bottom: 20px;
+  overflow: scroll;
+}
+.difficultyLabel {
+  height: 37px;
+}
+.submitColumn {
+  padding-top: 50px;
+  padding-left: 0;
+}
+.rightContainer {
+  height: 730px;
+  margin-top: 20px;
+  padding: 0;
+  padding-top: 10px;
+}
+
+.libraryMenu {
+  height: 200px;
+}
+.libraryList {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 2px;
+  height: 300px;
+  background-color: #E8E8E8;
+}
+.libraryWords {
+  height: 500px;
+}
+.libraryTopRight {
+  margin-bottom: 20px;
+}
+
+.listContainer {
+  overflow: scroll;
+  height: 200px;
+  background-color: #F6F6F6;
+  border: 2px solid silver;
+  border-radius: 3px;
+}
+.libraryWordsLeft {
+  height: 500px;
+  background-color: #E8E8E8;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+.libraryWordsRight {
+  padding-left: 10px;
+  height: 500px;
+  background-color: #E8E8E8;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 3px;
+}
+.currentLibraryList {
+  overflow: scroll;
+  height: 430px;
+  background-color: #F6F6F6;
+  border: 2px solid silver;
+  border-radius: 3px;
+}
