@@ -5,15 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Nerd Words" %></title>
+    <%= csrf_meta_tags %>
 
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_pack_tag 'application' %>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
+
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+      <h1>  <Link to='/'> Nerd Words </Link></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if user_signed_in? %>
+            <li class="active sign-in"><a href="/users/sign_out">Log Out</a></li>
+          <% else %>
+          <li class="active sign-in"><a href="/users/sign_in">Log In</a></li>
+            <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+          <% end %>
+          <li class="has-dropdown">
+            <a href="#">Right Button Dropdown</a>
+            <ul class="dropdown">
+              <li><a href="#">First link in dropdown</a></li>
+              <li class="active"><a href="#">Active link in dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="left">
+          <li><a href="#">Left Nav Button</a></li>
+        </ul>
+      </section>
+    </nav>
+
 
     <div class="global">
     <%= yield %>

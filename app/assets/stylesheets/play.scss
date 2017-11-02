@@ -1,0 +1,22 @@
+.playContainer {
+  background-color: #a02121;
+  height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.pSoon {
+  background-color: #E8E8E8;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 250px;
+  text-shadow: 1px 1px .5px white;
+  color: #1a1a1a;
+  font-family: 'Cinzel', serif;
+  font-size: 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

@@ -4,11 +4,16 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :libraries
+
   namespace :api do
       namespace :v1 do
         resources :users
+        resources :words
+        resources :libraries
       end
     end
 
   root 'homes#index'
+  get "*path", to: "homes#index"
 end
