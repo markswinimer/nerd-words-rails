@@ -40,6 +40,7 @@ class CreateContainer extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
+      debugger
       this.setState({ user_libraries: data })
     })
   }
@@ -63,6 +64,7 @@ class CreateContainer extends React.Component {
     this.setState({menuContent: event.target.id})
   }
   changeMenu(menu) {
+    debugger
     this.setState({menuContent: menu})
   }
 
@@ -96,7 +98,7 @@ class CreateContainer extends React.Component {
         activeContent = <LibraryContentsContainer
           handleSubmit={this.handleSubmit}
           handleMenu={this.handleMenu}
-          changeManue={this.changeMenu}
+          changeMenu={this.changeMenu}
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
           currentLibrary={currentLibrary}
