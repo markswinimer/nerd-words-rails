@@ -2,12 +2,12 @@ class Api::V1::WordsController < ApplicationController
 
   def create
     body = JSON.parse(request.body.read)
-    user = User.find(1)
-    name = "Scooby Doo"
+    user = User.find(body["user"]["user"]["id"])
+    name = body["title"]
+    description = body["description"]
     if Library.where(name: name).blank?
-      Library.create!(name: name, user: user)
+      Library.create!(name: name, description: description, user: user)
     end
-
     currentLibrary = Library.find_by(name: name)
 
     body["library"].each do |word|

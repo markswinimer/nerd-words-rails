@@ -17,17 +17,17 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-      <h1>  <Link to='/'> Nerd Words </Link></h1>
+          <h1><%= link_to 'Nerd Words', root_path %></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-            <li class="active sign-in"><a href="/users/sign_out">Log Out</a></li>
+            <li class="active sign-in"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <% else %>
-          <li class="active sign-in"><a href="/users/sign_in">Log In</a></li>
-            <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+          <li class="active sign-in"><%= link_to 'Log In', new_user_session_path %></li>
+            <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
           <li class="has-dropdown">
             <a href="#">Right Button Dropdown</a>

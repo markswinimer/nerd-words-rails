@@ -5,7 +5,8 @@ const ListElement = props => {
     props.handleClick(props.id)
   }
   return(
-    <div className="libraryList" onClick={handleClick}>{props.name}
+    <div onClick={handleClick}>{props.name}
+      <hr />
     </div>
   )
 }

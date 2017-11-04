@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:300|Quicksand:300,400');
+
+
 .createLibraryContainer {
   padding-right: 20px;
 }
-.libraryContainer {
-  background-color: #E8E8E8;
-  padding: 0;
-  margin: 0;
-}
+
 .leftContainer {
   height: 800px;
 }
@@ -56,31 +55,16 @@
   padding-top: 50px;
   padding-left: 0;
 }
-.rightContainer {
-  height: 730px;
-  margin-top: 20px;
-  padding: 0;
-  padding-top: 10px;
-}
+
 
 .libraryMenu {
   height: 200px;
 }
-.libraryList {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  border-radius: 2px;
-  height: 300px;
-  background-color: #E8E8E8;
-}
+
 .libraryWords {
   height: 500px;
 }
-.libraryTopRight {
-  margin-bottom: 20px;
-}
+
 
 .listContainer {
   overflow: scroll;
@@ -104,14 +88,98 @@
   border-bottom: 2px solid black;
   border-radius: 3px;
 }
-.currentLibraryList {
-  overflow: scroll;
-  height: 430px;
-  background-color: #F6F6F6;
-  border: 2px solid silver;
-  border-radius: 3px;
+.listHeader {
+  color: black;
+  padding-left: 10px;
+  font-size: 40px;
+  font-family: 'Josefin Slab', serif;
 }
-hr {
-  margin-bottom: 3px;
-  margin-top: 3px;
+.menuHeader {
+  color: black;
+  text-align: center;
+  padding-left: 10px;
+  font-size: 40px;
+  font-family: 'Josefin Slab', serif;
+}
+.myLibraries {
+  padding-left: 10px;
+  overflow: scroll;
+  font-family: 'Quicksand', sans-serif;
+  height: 430px;
+}
+.libraryList {
+  padding-bottom: 10px;
+}
+hr.hrLibrary {
+  border-color: black;
+  color: black;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+hr.hrMenu {
+  border-color: black;
+  color: black;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+.leftContainer {
+  height: 800px;
+}
+.rightContainer {
+  height: 800px;
+}
+.libraryTopRight {
+  height: 200px;
+}
+.libraryTopLeft {
+  height: 200px;
+}
+
+.leftLibraryForm {
+  overflow: scroll;
+  height: 500px;
+  max-height: 600px;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.libraryControlMenu {
+  height: 400px;
+  padding-left: 150px;
+  padding-right: 120px;
+}
+.block-display button {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+button.libButton {
+  color: black;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #E8E8E8;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+button.submitButton {
+  color: black;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #E8E8E8;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#save {
+  background-color: #808080;
+}
+
+h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+}
+
+
+.libraryNewData {
+  width: 350px;
 }
