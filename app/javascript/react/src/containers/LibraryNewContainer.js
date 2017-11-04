@@ -7,9 +7,10 @@ class LibraryNewContainter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      library: null,
+      library: "",
       title: "",
-      description: ""
+      description: "",
+      header: "Create New Library"
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -17,15 +18,27 @@ class LibraryNewContainter extends React.Component {
   }
 
   componentDidMount() {
-    if(this.state.library === null) {
+    let library = {}
+    if(this.props.menuContent === "newLibrary") {
       let i = 0;
-      let library = []
       while(i < 50) {
         let word = "word" + i
-        library.push({[word]: ""})
+        library[word] = ""
         i += 1
         }
         this.setState({library: library})
+      } else {
+        let newWord = ""
+        this.props.currentLibrary.library.words.forEach(word => {
+          newWord = "word" + word.id
+          library[newWord] = word.name
+        })
+        this.setState({
+          library: library,
+          title: this.props.currentLibrary.library.name,
+          description: this.props.currentLibrary.library.description,
+          header: this.props.currentLibrary.library.name
+         })
       }
     }
 
@@ -46,7 +59,7 @@ class LibraryNewContainter extends React.Component {
 
     handleChange(event){
       let cloneLibrary = this.state.library
-      cloneLibrary[event.target.id][event.target.name] = event.target.value
+      cloneLibrary[event.target.name] = event.target.value
       this.setState({library: cloneLibrary})
     }
 
@@ -56,37 +69,39 @@ class LibraryNewContainter extends React.Component {
 
   render() {
     let inputContainer = [];
-    let difficultyContainer = [];
     let i = 0;
-    while(i < 50) {
-      let word = "word" + i
-      inputContainer.push(
-        <WordInputField
-        key={"w" + i}
-        id={i}
-        placeholder={i + 1}
-        name={word}
-        handleDetails={this.handleChange}
-      />)
-      i += 1
-    }
-
+    if(this.state.library) {
+      let lib = this.state.library
+      let list = Object.entries(lib)
+      list.forEach(word => {
+        let value = this.state.library[word[0]]
+        inputContainer.push(
+          <WordInputField
+            key={"w" + i}
+            id={"w" + i}
+            name={word[0]}
+            value={value}
+            handleDetails={this.handleChange}
+          />
+        )
+        i += 1
+      }
+    )
+  }
     return(
       <div>
         <div className="small-12 large-12 columns libraryTopRight">
         </div>
           <div className="small-12 large-12 columns newLibraryInfo">
-            <div className="listHeader">Create New Library</div>
+            <div className="listHeader">{this.state.header}</div>
           <hr className="hrLibrary" />
+        <div className="newFormContainer">
           <div className="small-6 large-6 columns leftLibraryForm">
             <form id="list">{inputContainer}</form>
           </div>
         <div className="small-6 large-6 columns rightLibraryForm">
           <div className="libraryNewData">
-            <button id="save" className="submitButton" onClick={this.handleSubmit}>Save</button>
-            <button className="submitButton" onClick={this.handleSubmit}>Edit</button>
-            <button className="submitButton" onClick={this.handleSubmit}>Clear</button>
-            <h3>Library Name</h3>
+            <h3 id="title">Library Name</h3>
             <WordInputField
               placeholder="List Name..."
               name="title"
@@ -100,8 +115,14 @@ class LibraryNewContainter extends React.Component {
               value={this.state.description}
               handleDetails={this.handleDetails}
               />
+              <div className="newFormButtons">
+                <button id="save" className="submitButton" onClick={this.handleSubmit}>Save</button>
+                <button className="submitButton" onClick={this.handleSubmit}>Edit</button>
+                <button className="submitButton" onClick={this.handleSubmit}>Clear</button>
+            </div>
           </div>
         </div>
+      </div>
       </div>
       </div>
     )

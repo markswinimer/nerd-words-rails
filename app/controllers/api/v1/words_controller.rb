@@ -1,5 +1,10 @@
 class Api::V1::WordsController < ApplicationController
 
+  def index
+    words = current_user.words
+    render json: { words: words }
+  end
+
   def create
     body = JSON.parse(request.body.read)
     user = User.find(body["user"]["user"]["id"])
@@ -11,7 +16,7 @@ class Api::V1::WordsController < ApplicationController
     currentLibrary = Library.find_by(name: name)
 
     body["library"].each do |word|
-      word_name = word.values[0]
+      word_name = word[1]
       if Word.where(name: word_name).blank? && word_name != ""
         new_word = Word.create!(name: word_name, user: user)
         WordLibrary.create!(word: new_word, library: currentLibrary)

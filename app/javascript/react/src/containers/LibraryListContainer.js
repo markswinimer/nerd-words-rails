@@ -10,8 +10,8 @@ class LibraryListContainer extends React.Component {
 
   render() {
     let myLibraries = [];
-    if(this.props.user_info.libraries) {
-    myLibraries = this.props.user_info.libraries.map(library => {
+    if(this.props.user_libraries) {
+    myLibraries = this.props.user_libraries.libraries.map(library => {
       return(
         <ListElement
           handleClick={this.props.handleClick}
@@ -23,18 +23,7 @@ class LibraryListContainer extends React.Component {
       )
     })
   }
-    let wordList;
-    if(this.props.currentLibrary.wordList) {
-     wordList = this.props.currentLibrary.wordList.map(word => {
-      return(
-        <ListElement
-          key={word.id}
-          id={word.id}
-          name={word.name}
-        />
-      )
-    })
-  }
+
   return(
     <div>
       <div className="small-12 large-12 columns libraryTopRight">
