@@ -2,18 +2,17 @@ import React from 'react'
 
 const WordInputField = props => {
   return(
-    <label>
+    <label>{props.label}
       <input
         placeholder={props.placeholder}
         name={props.name}
-        onChange={props.handleDetails}
+        onChange={props.handleChange}
         type='text'
         id={props.id}
-        value={props.value}
+        value={props.content}
         style={{margin: 0}}
       />
     </label>
   )
 }
-
 export default WordInputField

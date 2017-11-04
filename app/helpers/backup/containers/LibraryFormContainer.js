@@ -70,6 +70,7 @@ class LibraryFormContainer extends React.Component {
     return(
       <div>
         <div className="small-12 large-12 libraryContainer">
+          <div className="small-12 large-12 libraryTopRight"
           <div className="small-12 large-12 columns libraryLabels">
             <WordInputField
               placeholder="List Name..."
