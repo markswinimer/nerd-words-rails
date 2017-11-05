@@ -5,6 +5,7 @@ const LibraryMenuContainer = props => {
     return(
       <div className="small-12 large-12 libraryContainer">
         <div className="small-12 large-12 libraryTopLeft">
+          
         </div>
         <div className="small-12 large-12 libraryControlMenu">
           <div className="menuHeader">Menu</div>

@@ -9,7 +9,7 @@ class LibraryListContainer extends React.Component {
   }
 
   render() {
-    let myLibraries = [];
+    let myLibraries = "Looks like you don't have any libraries yet!";
     if(this.props.user_libraries) {
     myLibraries = this.props.user_libraries.libraries.map(library => {
       return(
@@ -23,6 +23,8 @@ class LibraryListContainer extends React.Component {
       )
     })
   }
+
+
 
   return(
     <div>
