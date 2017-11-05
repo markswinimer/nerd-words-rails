@@ -26,10 +26,15 @@ class MainContainer extends React.Component {
   render() {
     return(
       <div>
+        <div className="whiteTop"></div>
           <div className="small-12 large-12 welcome">
-            <div className="title">Nerd Words</div>
+            <div className="title">NERD WORDS</div>
+          </div>
+          <div className="whiteSlab">
           </div>
           <HomeLinks />
+          <div className="whiteBottom"></div>
+          <div className="bottomBorder"></div>
         </div>
     )
   }

@@ -19,7 +19,6 @@
         <li class="name">
           <h1><%= link_to 'Nerd Words', root_path %></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
@@ -30,15 +29,15 @@
             <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
           <li class="has-dropdown">
-            <a href="#">Right Button Dropdown</a>
+            <a href="#">| | |</a>
             <ul class="dropdown">
-              <li><a href="#">First link in dropdown</a></li>
-              <li class="active"><a href="#">Active link in dropdown</a></li>
+              <li><a href="#">Profile</a></li>
+              <li class="active"><a href="#">Help</a></li>
             </ul>
           </li>
         </ul>
         <ul class="left">
-          <li><a href="#">Left Nav Button</a></li>
+          <li><a>@</a></li>
         </ul>
       </section>
     </nav>

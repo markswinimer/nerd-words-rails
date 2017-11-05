@@ -2,3 +2,22 @@
   padding: 0 5px;
   background-color: #a02121;
 }
+
+.top-bar {
+  background-color: #c73636
+}
+
+h1, h1 a {
+  font-size: 30px;
+    font-family: 'Russo One', sans-serif;
+}
+
+.left {
+  width: 10px;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: #808080;
+  font-family: 'Quicksand', serif;
+
+}
