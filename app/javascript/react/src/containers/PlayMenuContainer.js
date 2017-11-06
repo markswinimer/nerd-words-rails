@@ -9,14 +9,18 @@ class PlayMenuContainer extends React.Component {
     this.state = {
       libraryOption: "",
       libraryList: "",
-      selectedLibrary: "",
+      selectedLibraryId: null,
+      playerCount: null,
       gameMode: null
     }
     this.handleSelect = this.handleSelect.bind(this)
+    this.handlePlayStart = this.handlePlayStart.bind(this)
     this.handleSelectPlayers = this.handleSelectPlayers.bind(this)
     this.handleLibraryOption = this.handleLibraryOption.bind(this)
     this.handleSelectLibrary = this.handleSelectLibrary.bind(this)
   }
+
+
 
 
   handleLibraryOption(event) {
@@ -33,13 +37,11 @@ class PlayMenuContainer extends React.Component {
       }
     } else if(event.target.id === "favorites") {
       if(this.props.user_info.favorites.length > 0) {
-        debugger
         this.setState({
           libraryOption: event.target.id,
           libraryList: this.props.user_info.favorites
         })
       } else {
-        debugger
         this.setState({
           libraryOption: "noFavorites"
         })
@@ -57,8 +59,8 @@ class PlayMenuContainer extends React.Component {
       })
     }
   }
-  handleSelectLibrary(event) {
-    this.setState({selectedLibrary: ""})
+  handleSelectLibrary(libraryId) {
+    this.setState({selectedLibraryId: libraryId})
   }
   handleSelect(event) {
     this.setState({ gameMode: event.target.id })
@@ -66,12 +68,28 @@ class PlayMenuContainer extends React.Component {
   handleSelectPlayers(event) {
     this.setState({ playerCount: event.target.id })
   }
+  handlePlayStart() {
+    let gameData = {}
+    gameData["libraryId"] = this.state.selectedLibraryId
+    gameData["playerCount"] = this.state.playerCount
+    gameData["gameMode"] = this.state.gameMode
+    this.props.handlePlayStart(gameData)
+  }
 
   render() {
+    console.log(this.state.selectedLibraryId)
     let myLibraries;
+    let myFavorites;
+    let randomLibrary;
+    let librarySelected;
+
+    let myLibrariesButton = "playButton"
+    let favoriteButton = "playButton"
+    let randomButton = "playButton"
     let playClassic = "playButton"
     let playTaboo = "playButton"
     let playCustom = "playButton"
+
     if(this.state.gameMode == "playClassic") {
       playClassic = "selected"
     } else if (this.state.gameMode == "playTaboo") {
@@ -81,57 +99,82 @@ class PlayMenuContainer extends React.Component {
     }
 
     if(this.state.libraryOption === "myLibraries") {
-    myLibraries = this.props.user_info.libraries.map(library => {
+      myLibrariesButton = "selected"
+      myLibraries = this.props.user_info.libraries.map(library => {
+      if(this.state.selectedLibraryId === library.id) {
+        librarySelected = "librarySelected"
+      } else {
+        librarySelected = "playList"
+      }
       return(
         <div>
         <ListElement
-          handleClick={this.props.handleClick}
+          handleClick={this.handleSelectLibrary}
           key={library.id}
           id={library.id}
           name={library.name}
-          className="playList"
-          description={library.description}
+          className={librarySelected}
         />
-        <br/>
+        <hr/>
       </div>
       )
     })
+    myLibraries = <div className="selectedLibraries">{myLibraries}</div>
+
   } else if (this.state.libraryOption === "noLibraries") {
-    myLibraries = <h6>Oops. You don't have any libraries yet...</h6>
+    myLibrariesButton = "selected"
+    myLibraries =<div className="selectedLibraries"><h6>Oops. You don't have any libraries yet...</h6></div>
+
   } else if (this.state.libraryOption === "noFavorites") {
-    myLibraries = <h6>Oops. You havn't favorited anything yet...</h6>
+    favoriteButton = "selected"
+    myFavorites = <div className="selectedLibraries"><h6>Oops. You havn't favorited anything yet...</h6></div>
+
+  } else if (this.state.libraryOption === "favorites") {
+    favoriteButton = "selected"
+
+  } else if (this.state.libraryOption === "random") {
+    randomButton = "selected"
+
   }
+
     return(
-    <div className="playMenuContainer">
-    <div className="small-4 large-4 columns playMenu">
-      <div className="small-12 large-12 libraryTopLeft"></div>
-        <div className="menuHeader">MODE</div>
-        <hr className="hrMenu"/>
-        <div className="block-display">
-          <button onClick={this.handleSelect} id="playClassic" className={playClassic}>Classic</button>
-          <button onClick={this.handleSelect} id="playTaboo" className={playTaboo}>Taboo</button>
-          <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Custom</button>
-        </div>
-    </div>
+      <div>
+        <div className="small-12 large-12 columns playMenuContainer">
+          <div className="small-4 large-4 columns playMenu">
+            <div className="small-12 large-12 libraryTopLeft"></div>
+            <div className="menuHeader">MODE</div>
+            <hr className="hrMenu"/>
+            <div className="block-display">
+              <button onClick={this.handleSelect} id="playClassic" className={playClassic}>Classic</button>
+              <button onClick={this.handleSelect} id="playTaboo" className={playTaboo}>Taboo</button>
+              <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Custom</button>
+            </div>
+          </div>
 
-    <PlayerSelectComponent
-      handleSelect={this.handleSelectPlayers}
-      className="playButton"
-      playerCount={this.state.playerCount}
-     />
+          <PlayerSelectComponent
+            handleSelect={this.handleSelectPlayers}
+            className="playButton"
+            playerCount={this.state.playerCount}
+          />
 
-    <div className="small-4 large-4 columns playMenu">
-      <div className="small-12 large-12 libraryTopLeft"></div>
-        <div className="menuHeader">LIBRARY</div>
-        <hr className="hrMenu"/>
-        {myLibraries}
-        <div className="play-block-display">
-          <button onClick={this.handleLibraryOption} id="myLibraries" className="playButton">My Libraries</button>
-          <button onClick={this.handleLibraryOption} id="favorites" className="playButton">Favorites</button>
-          <button onClick={this.handleLibraryOption} id="random" className="playButton">Random!</button>
+          <div className="small-4 large-4 columns playMenu">
+            <div className="small-12 large-12 libraryTopLeft"></div>
+            <div className="menuHeader">LIBRARY</div>
+            <hr className="hrMenu"/>
+            <div className="play-block-display">
+              <button onClick={this.handleLibraryOption} id="myLibraries" className={myLibrariesButton}>My Libraries</button>
+              {myLibraries}
+              <button onClick={this.handleLibraryOption} id="favorites" className={favoriteButton}>Favorites</button>
+              {myFavorites}
+              <button onClick={this.handleLibraryOption} id="random" className={randomButton}>Random!</button>
+              {randomLibrary}
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
+        <div className="small-12 large-12 columns playStartContainer">
+          <button onClick={this.handlePlayStart} id="playStart" className="playStartButton">Word Up!</button>
+        </div>
+      </div>
     )
   }
 }

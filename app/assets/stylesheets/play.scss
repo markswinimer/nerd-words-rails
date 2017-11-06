@@ -1,10 +1,8 @@
 .playContainer {
   padding: 0 20px;
+  height: 680px;
 }
 
-.playMenuContainer {
-
-}
 
 .playMenu {
   padding: 0px 20px;
@@ -29,8 +27,6 @@ button.playButton {
   border-radius: 3px;
   font-family: 'Quicksand', sans-serif;
   background-color: #E8E8E8;
-
-  // border-bottom: 3px solid #c73636;
   justify-content: center;
   margin-bottom: 10px;
 }
@@ -47,5 +43,40 @@ button.selected {
   margin-bottom: 10px;
 }
 .playList {
+  text-align: center;
+}
+
+.selectedLibraries {
+  padding-top: 15px;
+  margin: 0 50px;
+  margin-top: -10px;
+  overflow: scroll;
+  height: 200px;
+}
+button.playStartButton {
+  margin: auto;
+  margin-top: 80px;
+  color: white;
+  width: 400px;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #c73636;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+}
+
+.playStartContainer {
+  height: 200px;
+  text-align: center;
+}
+
+.librarySelected {
+  color: white;
+  border-bottom: 3px solid #333333;
+  
+  padding: 3px 0;
+  border-radius: 3px;
+  background-color: #c73636;
   text-align: center;
 }

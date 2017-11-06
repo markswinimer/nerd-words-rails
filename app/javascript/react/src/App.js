@@ -4,6 +4,7 @@ import MainContainer from './containers/MainContainer.js'
 import CreateContainer from './containers/CreateContainer.js'
 import PlayContainer from './containers/PlayContainer.js'
 import ShareContainer from './containers/ShareContainer.js'
+import GameContainer from './containers/GameContainer.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,10 @@ class App extends React.Component {
 
           <Route path='/play'
           component={PlayContainer}/>
+
+          <Route path='/gameplay'
+          component={GameContainer}/>
+
         </Route>
       </Router>
     </div>

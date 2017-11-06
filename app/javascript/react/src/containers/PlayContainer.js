@@ -15,16 +15,16 @@ class PlayContainer extends React.Component {
       currentLibrary: null,
       menuContent: "myLibrary",
       user_info: null,
-      user_libraries: null
+      user_libraries: null,
+      gameStart: false,
+      gameData: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.changeCurrentLibrary = this.changeCurrentLibrary.bind(this)
     this.handleMenu = this.handleMenu.bind(this)
     this.changeMenu = this.changeMenu.bind(this)
+    this.handlePlayStart = this.handlePlayStart.bind(this)
   }
-
-
-
   componentDidMount() {
     fetch('/api/v1/users.json', {
       credentials: 'same-origin',
@@ -71,21 +71,34 @@ class PlayContainer extends React.Component {
   handleSubmit(event) {
     this.setState({word_list: ["one"]})
   }
+  handlePlayStart(event) {
+    debugger
+    this.setState({
+      gameStart: true,
+      gameData: event
+    })
+  }
 
   render() {
     let currentLibrary = [];
     let playContainer;
-    if(this.state.user_info) {
+    if((this.state.user_info) && (this.state.gameStart == false)) {
       playContainer = <PlayMenuContainer
         handleMenu={this.handleMenu}
         user_info={this.state.user_info}
         currentLibrary={this.state.currentLibrary}
+        handlePlayStart={this.handlePlayStart}
+      />
+    } else if (((this.state.user_info) && (this.state.gameStart == true))) {
+      playContainer = <GameContainer
+        user_info={this.state.user_info}
+        gameData={this.state.gameData}
       />
     }
     return(
-      <div className="small-12 large-12 playContainer">
-        {playContainer}
-      </div>
+        <div className="small-12 large-12 playContainer">
+          {playContainer}
+        </div>
     )
   }
   }
