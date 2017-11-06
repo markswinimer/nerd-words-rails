@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :words
         resources :libraries
         resources :libraries_selector
+        resources :gameplay
       end
     end
 

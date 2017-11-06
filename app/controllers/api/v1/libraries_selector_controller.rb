@@ -7,4 +7,7 @@ class Api::V1::LibrariesSelectorController < ApplicationController
     render json: { words: words, name: random.name }
   end
 
+  def show
+    binding.pry
+  end
 end

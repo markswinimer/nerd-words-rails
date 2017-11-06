@@ -9,7 +9,6 @@ class HomeLinks extends React.Component {
     }
     //bindings
   }
-  // <Link to='/library/new'><div className="small-4 large-4 columns homeLink">CREATE</div></Link>
 
   render() {
     return(
