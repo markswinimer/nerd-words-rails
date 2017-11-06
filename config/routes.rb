@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         resources :users
         resources :words
         resources :libraries
+        resources :libraries_selector
       end
     end
 

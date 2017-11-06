@@ -17,6 +17,7 @@ class LibraryListContainer extends React.Component {
           handleClick={this.props.handleClick}
           key={library.id}
           id={library.id}
+          className="libraryList"
           name={library.name}
           description={library.description}
         />

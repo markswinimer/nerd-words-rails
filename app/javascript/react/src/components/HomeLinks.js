@@ -21,14 +21,14 @@ class HomeLinks extends React.Component {
           </Link>
         </div>
         <div className="small-4 large-4 columns homeLink">
-          <Link to='/share'>
-          <div className="homeHeader">SHARE</div>
+          <Link to='/play'>
+          <div className="homeHeader">PLAY</div>
           <hr className="hrLibrary" />
           </Link>
         </div>
         <div className="small-4 large-4 columns homeLink">
-          <Link to='/play'>
-          <div className="homeHeader">PLAY</div>
+          <Link to='/share'>
+          <div className="homeHeader">SHARE</div>
           <hr className="hrLibrary" />
           </Link>
         </div>

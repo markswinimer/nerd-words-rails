@@ -1,22 +1,51 @@
 .playContainer {
-  background-color: #a02121;
-  height: 100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding: 0 20px;
 }
 
-.pSoon {
+.playMenuContainer {
+
+}
+
+.playMenu {
+  padding: 0px 20px;
+}
+
+.play-block-display button {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+h6 {
+  padding: 0 10px;
+  text-align:  center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button.playButton {
+  padding-left: 0;
+  padding-right: 0;
+  color: black;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
   background-color: #E8E8E8;
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 400px;
-  height: 250px;
-  text-shadow: 1px 1px .5px white;
-  color: #1a1a1a;
-  font-family: 'Cinzel', serif;
-  font-size: 40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+
+  // border-bottom: 3px solid #c73636;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+button.selected {
+  padding-left: 0;
+  padding-right: 0;
+  color: white;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #c73636;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.playList {
+  text-align: center;
 }
