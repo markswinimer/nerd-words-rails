@@ -8,6 +8,8 @@
   padding: 0px 20px;
 }
 
+
+
 .play-block-display button {
   width: 50%;
   display: block;
@@ -74,9 +76,15 @@ button.playStartButton {
 .librarySelected {
   color: white;
   border-bottom: 3px solid #333333;
-  
+
   padding: 3px 0;
   border-radius: 3px;
   background-color: #c73636;
+  text-align: center;
+}
+
+.playerContainer {
+  justify-content: center;
+  margin: auto;
   text-align: center;
 }

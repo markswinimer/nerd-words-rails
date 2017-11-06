@@ -7,7 +7,7 @@ const PlaySelectComponent = props => {
   let className;
   buttons = players.map(num => {
     className = props.className
-    id = num + "player"
+    id = num
     if(id == props.playerCount) {
       className = "selected"
     }

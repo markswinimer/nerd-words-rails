@@ -6,6 +6,8 @@ import LibraryContentsContainer from './LibraryContentsContainer.js'
 import LibraryWordsContainer from './LibraryWordsContainer.js'
 import PlayMenuContainer from './PlayMenuContainer.js'
 import PlayerSelectComponent from '../components/PlayerSelectComponent.js'
+import GameContainer from './GameContainer'
+import PlayerNamesContainer from './PlayerNamesContainer'
 
 class PlayContainer extends React.Component {
   constructor(props) {
@@ -72,11 +74,13 @@ class PlayContainer extends React.Component {
     this.setState({word_list: ["one"]})
   }
   handlePlayStart(event) {
-    debugger
     this.setState({
       gameStart: true,
       gameData: event
     })
+  }
+  handleStartGame(payload) {
+    debugger;
   }
 
   render() {
@@ -90,9 +94,10 @@ class PlayContainer extends React.Component {
         handlePlayStart={this.handlePlayStart}
       />
     } else if (((this.state.user_info) && (this.state.gameStart == true))) {
-      playContainer = <GameContainer
+      playContainer = <PlayerNamesContainer
         user_info={this.state.user_info}
         gameData={this.state.gameData}
+        handleSubmit={this.handleStartGame}
       />
     }
     return(
