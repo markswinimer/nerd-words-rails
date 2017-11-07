@@ -49,8 +49,9 @@ button.selected {
   margin: 0 50px;
   margin-top: -10px;
   overflow: scroll;
-  height: 200px;
+  max-height: 200px;
 }
+
 button.playStartButton {
   margin: auto;
   margin-top: 80px;

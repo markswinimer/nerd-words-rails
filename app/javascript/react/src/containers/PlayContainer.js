@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router';
 import LibraryListContainer from './LibraryListContainer.js'
 import LibraryMenuContainer from './LibraryMenuContainer.js'
 import LibraryNewContainer from './LibraryNewContainer.js'
@@ -22,6 +23,7 @@ class PlayContainer extends React.Component {
       gameData: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleStartGame = this.handleStartGame.bind(this)
     this.changeCurrentLibrary = this.changeCurrentLibrary.bind(this)
     this.handleMenu = this.handleMenu.bind(this)
     this.changeMenu = this.changeMenu.bind(this)
@@ -80,13 +82,29 @@ class PlayContainer extends React.Component {
     })
   }
   handleStartGame(payload) {
-    debugger;
+    fetch('/api/v1/games.json', {
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)}
+    )
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ gameId: body.game.id })
+    })
   }
 
   render() {
     let currentLibrary = [];
     let playContainer;
-    if((this.state.user_info) && (this.state.gameStart == false)) {
+    if(this.state.gameId) {
+      let path = "/gameplay/" + this.state.gameId
+      playContainer =
+      <Link to={path}>
+        <div className="homeHeader">START</div>
+        <hr className="hrLibrary" />
+      </Link>
+    } else if (((this.state.user_info) && (this.state.gameStart == false))) {
       playContainer = <PlayMenuContainer
         handleMenu={this.handleMenu}
         user_info={this.state.user_info}
