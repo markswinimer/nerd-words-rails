@@ -6,9 +6,12 @@ class Api::V1::GamesController < ApplicationController
     playerData = game.players
     library = {name: game.library.name, words: game.library.words}
     i = 1
-    playerScore = {}
+    playerScore = []
     playerData.each do |p|
-      playerScore["player#{i}"] = {name: p.name, score: p.score}
+      pData = "player#{i}"
+      pData = { player_num: i, name: p.name, score: p.score }
+      playerScore << pData
+      i += 1
     end
     render json: {library: library, user: user, game: game, players: playerScore}
   end

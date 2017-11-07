@@ -1,4 +1,5 @@
 import React from 'react'
+import ScoreContainer from './ScoreContainer.js'
 
 class GameContainer extends React.Component {
   constructor(props) {
@@ -27,13 +28,18 @@ class GameContainer extends React.Component {
       })
     })
   }
-
-
   render() {
-    debugger
-
+    let scoreContainer;
+    if(this.state.players) {
+      scoreContainer =
+        <ScoreContainer
+        players={this.state.players}
+        />
+      }
     return(
-      <div>
+      <div className="small-12 large-12 columns gameplayContainer">
+          {scoreContainer}
+
         GAMEPLAY PAGE
       </div>
     )
