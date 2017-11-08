@@ -10,7 +10,6 @@ class GameRoundContainer extends React.Component {
 
 
   componentDidMount() {
-    event.preventDefault()
     if(this.state.gameStart === false) {
       this.props.setCurrentWord()
       this.setState({gameStart: true})
