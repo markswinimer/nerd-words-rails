@@ -111,11 +111,11 @@ class CreateContainer extends React.Component {
     }
     return(
       <div className="small-12 large-12 createLibraryContainer">
-        <div className="small-5 large-5 columns leftContainer">
-          <div className="small-1 large-6 columns">
+        <div className="small-3 large-3 columns leftContainer">
+          <div className="small-1 large-1 columns">
 
           </div>
-          <div className="small-11 large-6 columns">
+          <div className="small-11 large-11 columns">
           <LibraryMenuContainer
             handleMenu={this.handleMenu}
             handleClick={this.changeCurrentLibrary}
@@ -123,7 +123,7 @@ class CreateContainer extends React.Component {
             />
           </div>
         </div>
-        <div className="small-7 large-7 columns rightContainer">
+        <div className="small-9 large-9 columns rightContainer">
             {activeContent}
         </div>
       </div>

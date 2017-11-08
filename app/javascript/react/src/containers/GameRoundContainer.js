@@ -25,7 +25,7 @@ class GameRoundContainer extends React.Component {
       roundNumber: round
      })
   }
-  
+
   componentDidMount() {
     if (this.state.roundNumber === 0 ) {
     this.setState({roundNumber: this.props.roundNumber})
@@ -40,9 +40,9 @@ class GameRoundContainer extends React.Component {
     } else {
       currentWord = this.props.currentWord
       button =
-      <div>
-        <button onClick={this.handleScore} id="1" className="wordButtonL">YES</button>
-        <button onClick={this.handleScore} id="0" className="wordButtonR">NO</button>
+      <div className="small-12 large-12 columns scoreButtons">
+        <button onClick={this.handleScore} id="1" className="wordButtonL"><i class="fa fa-check" aria-hidden="true"></i></button>
+        <button onClick={this.handleScore} id="0" className="wordButtonR"><i class="fa fa-times" aria-hidden="true"></i></button>
       </div>
     }
 
