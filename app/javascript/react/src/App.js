@@ -30,7 +30,7 @@ class App extends React.Component {
           <Route path='/play'
           component={PlayContainer}/>
 
-          <Route path='/gameplay'
+          <Route path='/gameplay/:id'
           component={GameContainer}/>
 
         </Route>

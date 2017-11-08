@@ -11,3 +11,8 @@ library1 = Library.create!(name: "Library One", description: "The first library"
 wl1 = WordLibrary.create!(word: word1, library: Library.first)
 wl2 = WordLibrary.create!(word: word2, library: Library.first)
 wl3 = WordLibrary.create!(word: word3, library: Library.first)
+
+game1 = Game.create!(mode: "classic", player_count: 2, user: user1, library: library1)
+
+player1 = Player.create!(game: game1, name: "Mark")
+player2 = Player.create!(game: game1, name: "Ryan")

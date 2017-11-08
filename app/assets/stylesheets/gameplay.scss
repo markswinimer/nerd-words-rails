@@ -1,0 +1,137 @@
+.scoreColumn {
+  padding-top: 100px;
+
+}
+.playerScore{
+
+}
+.pScore {
+  width: 20px;
+  display:inline;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+}
+h5 {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+}
+.hrSmall {
+  margin: 0;
+  width: 100px;
+  margin: 5px 0;
+}
+
+.playerScoreName {
+  text-align: right;
+  display:inline;
+  width: 100px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  margin-right: 35px;
+}
+.playerHistory {
+  width: 100px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-right: 35px;
+}
+.scoreHeader {
+  color: black;
+  font-size: 40px;
+  font-family: 'Josefin Slab', serif;
+  margin-bottom: -2px;
+}
+.roundTitle {
+  font-family: 'Russo One', sans-serif;
+  font-size: 70px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #333333;
+}
+
+.gameDeck {
+  margin-top: 80px;
+}
+
+.wordsHistoryContainer {
+  height: 200px;
+  overflow: scroll;
+}
+
+.historyWord {
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+}
+.hrRound {
+  padding: 0;
+  margin: 0;
+}
+.gameRoundContainer {
+  padding-top: 54px;
+  padding-left: 70px;
+
+}
+.wordShow {
+  width: 800px;
+  padding-left: 0;
+}
+
+.wordButtonL {
+  width: 25%;
+
+  margin-top: 5px;
+  margin-right: 7px;
+  color: white;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #C7C77F;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+}
+.wordButtonR {
+  width: 25%;
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+  color: white;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #6E6460;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+}
+.wordButtonRR {
+  width: 25%;
+  margin-top: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+  color: white;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #FEFEEB;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+}
+.wordRow {
+  width: 100%;
+  text-align: center;
+  background-color: #c73636;
+  font-size: 80px;
+  font-family: 'Russo One', sans-serif;
+  border-right: 10px solid #333333;
+  border-left: 10px solid #333333;
+  color: white;
+  text-align: center;
+  height: 250px;
+  padding: 3px 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
