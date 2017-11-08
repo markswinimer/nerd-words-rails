@@ -1,15 +1,51 @@
 .scoreColumn {
   padding-top: 100px;
-
 }
-.playerScore{
 
+.remainingTitle {
+  width: 100%;
+  float: left;
+  background-color: #F6F6F6;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
 }
+
+.playerScore {
+  width: 100%;
+  float: left;
+  background-color: #F6F6F6;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+}
+.playerScoreSelected{
+  width: 100%;
+  float: left;
+  background-color: #c73636;
+  color: white;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+}
+
 .pScore {
+  padding-top: 6px;
+  padding-right: 8px;
+  float:right;
   width: 20px;
   display:inline;
-  font-family: 'Quicksand', sans-serif;
   font-size: 18px;
+  text-align: right;
 }
 h5 {
   margin-top: 20px;
@@ -25,10 +61,10 @@ h5 {
 .playerScoreName {
   text-align: right;
   display:inline;
+  padding: 3px 5px;
+  border-radius: 3px;
   width: 100px;
-  font-family: 'Quicksand', sans-serif;
   font-size: 24px;
-  margin-right: 35px;
 }
 .playerHistory {
   width: 100px;
@@ -49,20 +85,43 @@ h5 {
   padding-bottom: 0;
   margin-bottom: 0;
   color: #333333;
+  display: inline;
+}
+
+.roundTitle.right{
+  float: right;
+  padding-top: 15px;
+  font-size: 55px;
+}
+.roundTitleContainer {
+  float: left;
 }
 
 .gameDeck {
-  margin-top: 80px;
+  margin-top: 300px;
+}
+.deckMenu {
+
 }
 
 .wordsHistoryContainer {
+  width: 100%;
+  margin-top: 5px;
   height: 200px;
   overflow: scroll;
 }
 
 .historyWord {
   font-size: 18px;
+  width: 100%;
+  float: left;
+  background-color: #F6F6F6;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
   font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
 }
 .hrRound {
   padding: 0;
@@ -70,7 +129,7 @@ h5 {
 }
 .gameRoundContainer {
   padding-top: 54px;
-  padding-left: 70px;
+  padding-left: 20px;
 
 }
 .wordShow {
@@ -79,10 +138,24 @@ h5 {
 }
 
 .wordButtonL {
-  width: 25%;
-
+  width: 40%;
   margin-top: 5px;
   margin-right: 7px;
+  color: white;
+  font-size: 25px;
+  border-radius: 3px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #83A300;
+  border-bottom: 3px solid #333333;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+
+}
+.wordButtonView {
+  width: 40%;
+  margin-top: 5px;
+  margin-right: 8px;
   color: white;
   font-size: 25px;
   border-radius: 3px;
@@ -91,10 +164,10 @@ h5 {
   border-bottom: 3px solid #333333;
   justify-content: center;
 }
+
 .wordButtonR {
-  width: 25%;
+  width: 40%;
   margin-top: 5px;
-  margin-left: 8px;
   margin-right: 8px;
   color: white;
   font-size: 25px;
@@ -103,6 +176,8 @@ h5 {
   background-color: #6E6460;
   border-bottom: 3px solid #333333;
   justify-content: center;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+
 }
 .wordButtonRR {
   width: 25%;
@@ -116,6 +191,8 @@ h5 {
   background-color: #FEFEEB;
   border-bottom: 3px solid #333333;
   justify-content: center;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+
 }
 .wordRow {
   width: 100%;
@@ -134,4 +211,5 @@ h5 {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
 }

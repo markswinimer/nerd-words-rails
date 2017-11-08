@@ -16,8 +16,12 @@ class ScoreContainer extends React.Component {
     }
     let playerNames;
     playerNames = this.props.players.map( player => {
+      let className = "playerScore"
+      if(this.props.currentPlayer == player.player_num) {
+        className = "playerScoreSelected"
+      }
       return(
-        <div className="playerScore">
+        <div className={className}>
           <div className="playerScoreName">{player.name}</div>
           <div className="pScore">{player.score}</div>
         </div>
@@ -40,15 +44,19 @@ class ScoreContainer extends React.Component {
       <div className="small-2 large-2 columns scoreColumn">
         <div className="scoreHeader">SCORE</div>
         <hr className="hrLibrary" />
+
         {playerNames}
         <div className="gameDeck">
           <div className="scoreHeader">DECK</div>
           <hr className="hrLibrary" />
-          <div className="playerScore">
-            <div className="playerScoreName">Remaining</div>
-            <div className="pScore">{remaining}</div>
-            <div className="playerHistory">History</div>
-            <hr className="hrSmall"/>
+          <div className="deckMenu">
+            <div className="playerScore">
+              <div className="playerScoreName">Remaining</div>
+              <div className="pScore">{remaining}</div>
+            </div>
+            <div className="playerScoreSelected">
+            <div className="playerScoreName">History</div>
+            </div>
             <div className="wordsHistoryContainer">
               {wordsPlayed}
             </div>

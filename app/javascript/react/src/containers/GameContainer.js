@@ -40,7 +40,7 @@ class GameContainer extends React.Component {
   setCurrentWord() {
     if(this.state.deck == null) {
       this.setState({
-        currentWord: "No More Words",
+        currentWord: "No More Words"
       })
     } else {
       if(this.state.deck.length > 1) {
@@ -48,18 +48,12 @@ class GameContainer extends React.Component {
         let deck = this.state.deck
         let wordIndex = deck.indexOf(word)
         deck.splice(wordIndex, 1)
-        let history = this.state.wordHistory
-        history.push(word)
         this.setState({
-          wordHistory: history,
           currentWord: word,
           deck: deck
         })
       } else if(this.state.deck.length == 1) {
-        let history = this.state.wordHistory
-        history.push(this.state.deck[0])
         this.setState({
-          wordHistory: history,
           currentWord: this.state.deck[0],
           deck: null
         })
@@ -91,15 +85,17 @@ class GameContainer extends React.Component {
 
   handleScore(event) {
     //give player points for scoring
+    let history = this.state.wordHistory
+    history.push(this.state.currentWord)
     let score = parseInt(this.state.players[this.state.currentPlayer].score)
-    score += parseInt(event.target.id)
+    score += parseInt(event)
     let clonePlayers = this.state.players
     let a = clonePlayers[this.state.currentPlayer].score
     clonePlayers[this.state.currentPlayer].score = score
-    this.setState({players: clonePlayers})
-
-    //set next word and remove word from deck
-    this.setCurrentWord()
+    this.setState({
+      players: clonePlayers,
+      wordHistory: history
+    })
 
     //set the next current player
     if (this.state.currentPlayer == (this.state.gameData.player_count - 1)) {
@@ -121,12 +117,15 @@ class GameContainer extends React.Component {
         deck={this.state.deck}
         wordsPlayed={this.state.deck}
         wordHistory={this.state.wordHistory}
+        currentPlayer={this.state.currentPlayer}
         />
       gameRoundContainer =
       <GameRoundContainer
         handleScore={this.handleScore}
         setCurrentWord={this.setCurrentWord}
         currentWord={this.state.currentWord}
+        libraryName={this.state.library.name}
+        roundNumber={this.state.round}
       />
       }
     return(
