@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171106232514) do
 
   create_table "games", force: :cascade do |t|
     t.string "mode", null: false
-    t.string "player_count", null: false
+    t.integer "player_count", null: false
     t.bigint "library_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171106232514) do
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
-    t.string "score"
+    t.integer "score", default: 0
     t.bigint "game_id"
     t.index ["game_id"], name: "index_players_on_game_id"
   end

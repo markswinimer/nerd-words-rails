@@ -12,7 +12,7 @@ wl1 = WordLibrary.create!(word: word1, library: Library.first)
 wl2 = WordLibrary.create!(word: word2, library: Library.first)
 wl3 = WordLibrary.create!(word: word3, library: Library.first)
 
-game1 = Game.create!(mode: "classic", player_count: "2", user: user1, library: library1)
+game1 = Game.create!(mode: "classic", player_count: 2, user: user1, library: library1)
 
-player1 = Player.create!(game: game1, score: "0", name: "Mark")
-player2 = Player.create!(game: game1, score: "1", name: "Ryan")
+player1 = Player.create!(game: game1, name: "Mark")
+player2 = Player.create!(game: game1, name: "Ryan")

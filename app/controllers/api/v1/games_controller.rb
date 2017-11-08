@@ -5,15 +5,19 @@ class Api::V1::GamesController < ApplicationController
     game = Game.find(params[:id])
     playerData = game.players
     library = {name: game.library.name, words: game.library.words}
-    i = 1
+    i = 0
     playerScore = []
     playerData.each do |p|
-      pData = "player#{i}"
+      pData = "player#{i + 1}"
       pData = { player_num: i, name: p.name, score: p.score }
       playerScore << pData
       i += 1
     end
-    render json: {library: library, user: user, game: game, players: playerScore}
+    deck = []
+    game.library.words.each do |word|
+      deck << word.name
+    end
+    render json: {library: library, user: user, game: game, players: playerScore, deck: deck}
   end
 
   def create
