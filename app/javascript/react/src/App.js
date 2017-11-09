@@ -25,7 +25,7 @@ class App extends React.Component {
           component={CreateContainer}/>
 
           <Route path='/share'
-          component={CreateContainer}/>
+          component={ShareContainer}/>
 
           <Route path='/play'
           component={PlayContainer}/>

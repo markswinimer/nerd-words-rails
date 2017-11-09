@@ -49,7 +49,7 @@ class GameRoundContainer extends React.Component {
     return(
       <div className="small-10 large-10 columns gameRoundContainer">
         <div className="roundTitleCountainer">
-        <div className="roundTitle">Round {this.state.roundNumber}</div>
+        <div className="roundTitle">Turn {this.state.roundNumber}</div>
         <div className="roundTitle right">{this.props.libraryName}</div>
         <div></div>
         </div>

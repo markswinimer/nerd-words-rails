@@ -50,11 +50,11 @@ class ScoreContainer extends React.Component {
           <div className="scoreHeader">DECK</div>
           <hr className="hrLibrary" />
           <div className="deckMenu">
-            <div className="remainingTitle">
+            <div className="playerScore">
               <div className="playerScoreName">Remaining</div>
               <div className="pScore">{remaining}</div>
             </div>
-            <div className="remainingTitle">
+            <div className="playerScoreSelected">
             <div className="playerScoreName">History</div>
             </div>
             <div className="wordsHistoryContainer">
