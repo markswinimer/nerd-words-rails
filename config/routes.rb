@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :libraries
         resources :libraries_selector
         resources :games
+        resources :searches
       end
     end
 
