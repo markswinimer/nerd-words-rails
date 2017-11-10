@@ -11,7 +11,7 @@ const LibraryMenuContainer = props => {
           <hr className="hrMenu"/>
           <div className="block-display">
             <button onClick={props.handleMenu} id="myLibrary" className="libButton">Libraries</button>
-            <button onClick={props.handleMenu} id="myLibrary" className="libButton">Favorites</button>
+            <button onClick={props.handleMenu} id="myFavorites" className="libButton">Favorites</button>
             <button onClick={props.handleMenu} id="viewAllWords" className="libButton">Words</button>
             <button onClick={props.handleMenu} id="newLibrary" className="libButton">New</button>
           </div>

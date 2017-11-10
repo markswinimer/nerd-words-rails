@@ -79,9 +79,35 @@ button.playStartButton {
   background-color: #c73636;
   text-align: center;
 }
+.box {
+  margin-left: 0;
+  padding-left: 0;
+}
 
-.playerContainer {
+#suggestedBox {
+  padding-left: 10px;
+}
+
+.playerCountMenu {
+  margin-left: 400px;
   justify-content: center;
+  text-align: center;
+}
+.playerContainer {
+ justify-content: center;
   margin: auto;
   text-align: center;
+}
+
+.suggestedBox {
+  border-bottom: 5px solid #333333;
+  border-top: 5px solid #333333;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+  margin: 0 5px;
+  border-radius: 5px;
+  height: 600px;
+  padding: 5px 10px;
+  margin: 0 10px;
+  background-color: #f6f6f6;
 }

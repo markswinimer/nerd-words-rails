@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106232514) do
+ActiveRecord::Schema.define(version: 20171110195335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "library_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["library_id"], name: "index_favorites_on_library_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "mode", null: false
@@ -29,8 +38,8 @@ ActiveRecord::Schema.define(version: 20171106232514) do
   create_table "libraries", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.integer "play_count"
-    t.integer "favorite_count"
+    t.integer "play_count", default: 0
+    t.integer "favorite_count", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

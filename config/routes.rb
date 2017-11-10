@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :libraries_selector
         resources :games
         resources :searches
+        resources :favorites
       end
     end
 

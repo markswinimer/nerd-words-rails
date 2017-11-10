@@ -2,7 +2,12 @@ class Api::V1::LibrariesController < ApplicationController
 
   def index
     libraries = current_user.libraries
-    render json: { libraries: libraries }
+    favorites = current_user.favorites
+    fArray = []
+    favorites.each do |library|
+      fArray << Library.find(library.library_id)
+    end
+    render json: { libraries: libraries, favorites: fArray }
   end
 
   def show

@@ -43,18 +43,14 @@ class LibraryNewContainter extends React.Component {
     }
 
     handleSubmit() {
-      event.preventDefault();
       let formPayload = {
         library: this.state.library,
         title: this.state.title,
         description: this.state.description,
-        user: this.props.user_info}
-      fetch('/api/v1/words.json', {
-        credentials: 'same-origin',
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formPayload)}
-      )
+        user: this.props.user_info
+      }
+
+      this.props.handleSubmit(formPayload)
     }
 
     handleChange(event){

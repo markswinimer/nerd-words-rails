@@ -100,10 +100,50 @@ class PlayContainer extends React.Component {
     if(this.state.gameId) {
       let path = "/gameplay/" + this.state.gameId
       playContainer =
-      <Link to={path}>
-        <div className="homeHeader">START</div>
-        <hr className="hrLibrary" />
-      </Link>
+      <div>
+      <div className="small-12 large-12 columns">
+          <div id="suggestedBox" className="homeHeader">Suggested ways to play</div>
+          <hr className="hrLibrary" />
+      </div>
+
+      <div className="small-12 large-12 columns instructionsContainer">
+        <div className="small-4 large-4 columns box">
+          <div className="suggestedBox">
+              <div className="large-12 columns resultName">Pictionary</div>
+              <div className="large-12 columns instructionsBox">
+                <ul>
+                  <li className="iMenu">We suggest using your word library in place of physical cards while playing pictionary.</li>
+                  <li className="iMenu">Separate into teams or individual players.</li>
+                  <li className="iMenu">When it's your turn to draw a word, press the "Show" button and
+                    begin drawing. Once your turn is over, if your teammate/other players were able to
+                    guess your word, give yourself a point.</li>
+                  <li className="iMenu">Let the scoreboard keep track of score for you or keep playing
+                   until your game is over.</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div className="small-4 large-4 columns box">
+          <div className="suggestedBox">
+              <div className="large-12 columns resultName">Freeform</div>
+              <div className="large-12 columns instructionsBox">
+                <ul>
+                  <li className="iMenu">Nerd Words encourages you to play any way you like!</li>
+                  <li className="iMenu">You can use this word randomizer and score tracker for a host
+                    of word games.</li>
+                  <li className="iMenu">You can even invent new word games to play using your favorite library.</li>
+                </ul>
+              </div>
+        </div>
+        </div>
+
+        <div className="small-4 large-4 columns box">
+          <Link to={path}>
+          <button id="startButton" className="wordButtonView">Start!</button>
+          </Link>
+        </div>
+      </div>
+    </div>
     } else if (((this.state.user_info) && (this.state.gameStart == false))) {
       playContainer = <PlayMenuContainer
         handleMenu={this.handleMenu}

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :words
   has_many :libraries
   has_many :games
-
+  has_many :favorites
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
