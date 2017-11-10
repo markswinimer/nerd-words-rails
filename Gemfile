@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'jquery-rails'
 gem 'foundation-rails'
+gem 'faker'
 
 group :development do
   gem 'listen', '~> 3.0.5'

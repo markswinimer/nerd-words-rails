@@ -10,14 +10,7 @@ class LibraryContentsContainer extends React.Component {
   }
 
   handleDelete() {
-    fetch(`/api/v1/libraries/${this.props.currentLibrary.library.library_id}`, {
-      credentials: 'same-origin',
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(
-      this.props.changeMenu("myLibrary")
-    )
+    this.props.handleDelete(this.props.currentLibrary.library.library_id)
   }
 
 

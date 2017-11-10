@@ -146,8 +146,7 @@ class PlayMenuContainer extends React.Component {
             <hr className="hrMenu"/>
             <div className="block-display">
               <button onClick={this.handleSelect} id="playClassic" className={playClassic}>Classic</button>
-              <button onClick={this.handleSelect} id="playTaboo" className={playTaboo}>Taboo</button>
-              <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Custom</button>
+              <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Simply Random</button>
             </div>
           </div>
 

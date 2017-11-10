@@ -5,7 +5,7 @@ class Library < ApplicationRecord
 
   belongs_to :user
 
-
+  has_many :favorites
   has_many :games
   has_many :word_libraries
   has_many :words, through: :word_libraries

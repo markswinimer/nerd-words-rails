@@ -177,9 +177,23 @@ h5 {
   border-bottom: 3px solid #333333;
   justify-content: center;
   box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
-
 }
-
+.instructionsBox {
+  padding: 0;
+  padding-top: 20px;
+}
+.instructionsContainer {
+  margin-top: 20px;
+}
+li.iMenu {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+#startButton {
+  width: 100%;
+ background-color: #c73636;
+ color: white;
+}
 .wordButtonR {
   display:inline-block;
   width: 40%;

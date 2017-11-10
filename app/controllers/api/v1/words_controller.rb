@@ -11,7 +11,7 @@ class Api::V1::WordsController < ApplicationController
     name = body["title"]
     description = body["description"]
     if Library.where(name: name).blank?
-      Library.create!(name: name, description: description, user: user)
+      library = Library.create!(name: name, description: description, user: user)
     end
     currentLibrary = Library.find_by(name: name)
 
@@ -25,5 +25,11 @@ class Api::V1::WordsController < ApplicationController
         WordLibrary.create!(word: new_word, library: currentLibrary)
       end
     end
+    returnLibrary = {
+      library_id: currentLibrary.id,
+      name: currentLibrary.name,
+      words: currentLibrary.words
+    }
+    render json: { library: returnLibrary }
   end
 end

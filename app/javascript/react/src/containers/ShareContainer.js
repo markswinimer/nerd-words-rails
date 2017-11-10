@@ -9,6 +9,7 @@ class ShareContainer extends React.Component {
       searchResults: null
     }
     this.makeSearch = this.makeSearch.bind(this)
+    this.handleFavorite = this.handleFavorite.bind(this)
   }
 
   makeSearch(searchValue) {
@@ -25,6 +26,16 @@ class ShareContainer extends React.Component {
     })
   }
 
+  handleFavorite(id) {
+    debugger
+    fetch('/api/v1/favorites.json', {
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(id) }
+    )
+  }
+
   render() {
     return(
       <div className="small-12 large-12 columns shareContainer">
@@ -39,6 +50,7 @@ class ShareContainer extends React.Component {
           <div className="small-12 large-12 columns searchResultsContainer">
             <ResultsContainer
               searchResults={this.state.searchResults}
+              handleFavorite={this.handleFavorite}
             />
           </div>
         </div>

@@ -6,7 +6,12 @@ class ResultsContainer extends React.Component {
     super(props);
     this.state = {
     }
-    //bind
+    this.handleFavorite = this.handleFavorite.bind(this)
+  }
+
+  handleFavorite(event) {
+    let id = event.target.name
+    this.props.handleFavorite(id)
   }
 
   render() {
@@ -25,10 +30,12 @@ class ResultsContainer extends React.Component {
               <ResultTile
                 key={result.name}
                 result={result}
+                handleFavorite={this.handleFavorite}
               />
               <ResultTile
                 key={leftResult.name}
                 result={leftResult}
+                handleFavorite={this.handleFavorite}
               />
             </div>
           )

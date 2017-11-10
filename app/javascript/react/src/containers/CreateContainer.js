@@ -1,5 +1,6 @@
 import React from 'react'
 import LibraryListContainer from './LibraryListContainer.js'
+import LibraryFavoriteListContainer from './LibraryFavoriteListContainer.js'
 import LibraryMenuContainer from './LibraryMenuContainer.js'
 import LibraryNewContainer from './LibraryNewContainer.js'
 import LibraryContentsContainer from './LibraryContentsContainer.js'
@@ -19,9 +20,9 @@ class CreateContainer extends React.Component {
     this.changeCurrentLibrary = this.changeCurrentLibrary.bind(this)
     this.handleMenu = this.handleMenu.bind(this)
     this.changeMenu = this.changeMenu.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+    this.getUserLibraries = this.getUserLibraries.bind(this)
   }
-
-
 
   componentDidMount() {
     fetch('/api/v1/users.json', {
@@ -59,15 +60,51 @@ class CreateContainer extends React.Component {
     })
   }
 
+
   handleMenu(event) {
     this.setState({menuContent: event.target.id})
   }
   changeMenu(menu) {
+    this.getUserLibraries()
     this.setState({menuContent: menu})
   }
 
-  handleSubmit(event) {
-    this.setState({word_list: ["one"]})
+  handleSubmit(formPayload) {
+    fetch('/api/v1/words.json', {
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formPayload)}
+    )
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+      currentLibrary: body,
+      menuContent: "viewLibrary"
+      })
+    }
+    )
+  }
+
+  getUserLibraries() {
+    fetch('/api/v1/libraries.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ user_libraries: data })
+    })
+  }
+
+  handleDelete(library) {
+    fetch(`/api/v1/libraries/${library}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    this.changeMenu("myLibrary")
   }
 
   render() {
@@ -84,6 +121,13 @@ class CreateContainer extends React.Component {
         user_libraries={this.state.user_libraries}
         currentLibrary={currentLibrary}
         />
+      } else if (this.state.menuContent === "myFavorites") {
+        activeContent = <LibraryFavoriteListContainer
+          handleClick={this.changeCurrentLibrary}
+          user_info={this.state.user_info}
+          user_libraries={this.state.user_libraries}
+          currentLibrary={currentLibrary}
+          />
       } else if ((this.state.menuContent === "newLibrary") || (this.state.menuContent === "editLibrary")) {
         activeContent = <LibraryNewContainer
           handleSubmit={this.handleSubmit}
@@ -96,7 +140,7 @@ class CreateContainer extends React.Component {
         activeContent = <LibraryContentsContainer
           handleSubmit={this.handleSubmit}
           handleMenu={this.handleMenu}
-          changeManue={this.changeMenu}
+          handleDelete={this.handleDelete}
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
           currentLibrary={currentLibrary}

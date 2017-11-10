@@ -52,8 +52,8 @@ const ResultTile = props => {
             <i id="faViews" className="fa fa-gamepad" aria-hidden="true"></i>
             <div className="infoText">{props.result.data.play_count}</div>
           </div>
-          <button name="search" className="searchBarButton">
-            <i id="faFave" className="fa fa-star" aria-hidden="true"></i>
+          <button onClick={props.handleFavorite} name={props.result.data.id} className="searchBarButton">
+            <i name={props.result.data.id} id="faFave" className="fa fa-star" aria-hidden="true"></i>
           </button>
 
         </div>
