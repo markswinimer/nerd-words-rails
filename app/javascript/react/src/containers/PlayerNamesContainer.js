@@ -72,9 +72,7 @@ class PlayerNamesContainer extends React.Component {
           <hr className="hrMenu"/>
           <form onSubmit={this.handleSubmit}>
             {namesForm}
-            {/* <Link to='/gameplay'> */}
           <button className="playStartButton" type="submit">OK!</button>
-            {/* </Link> */}
           </form>
       </div>
       <div className="small-4 large-4 columns"></div>

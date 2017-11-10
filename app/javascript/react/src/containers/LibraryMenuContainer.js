@@ -10,9 +10,10 @@ const LibraryMenuContainer = props => {
           <div className="menuHeader">Menu</div>
           <hr className="hrMenu"/>
           <div className="block-display">
-            <button onClick={props.handleMenu} id="myLibrary" className="libButton">VIEW ALL</button>
-            <button onClick={props.handleMenu} id="newLibrary" className="libButton">NEW</button>
-            <button onClick={props.handleMenu} id="viewAllWords" className="libButton">WORDS</button>
+            <button onClick={props.handleMenu} id="myLibrary" className="libButton">Libraries</button>
+            <button onClick={props.handleMenu} id="myLibrary" className="libButton">Favorites</button>
+            <button onClick={props.handleMenu} id="viewAllWords" className="libButton">Words</button>
+            <button onClick={props.handleMenu} id="newLibrary" className="libButton">New</button>
           </div>
         </div>
       </div>

@@ -1,0 +1,190 @@
+.shareContainer {
+}
+
+.searchContainer {
+  text-align: left;
+  height: 170px;
+  padding-top: 10px;
+  background-color: white;
+}
+.searchResultsContainer {
+  height: 100vh;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.shareLeft {
+  height: 100vh;
+  padding-right: 15px;
+}
+.shareRight {
+  padding-right: 0;
+  padding-left: 10px;
+}
+.filterContainer {
+
+  background-color: #f6f6f6;
+
+}
+#filterBy {
+  text-align: left;
+  background-color: #c73636;
+  color: white;
+  margin: 0;
+  height: 37px;
+  margin-right: 10px;
+}
+.filterButton{
+  text-align: center;
+  width: 100px;
+  height: 35px;
+  background-color: #f6f6f6;
+  color: black;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+  display: inline-block;
+}
+.searchBarButton{
+  width: 80px;
+  height: 36px;
+  float: left;
+  background-color: #c73636;
+  color: white;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+  display: inline-block;
+}
+input.searchInput {
+  display: inline-block;
+  width: 400px;
+  border-radius: 0px 3px 3px 0;
+}
+
+.filterOption {
+  width: 100%;
+  float: left;
+  background-color: #F6F6F6;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+}
+.filterOptionSelected {
+  width: 100%;
+  float: left;
+  background-color: #c73636;
+  color: white;
+  border-bottom: 2px solid #333333;
+  padding: 0 1px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+}
+
+.resultTile {
+  background-color: white;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+.resultWordList {
+  margin: 0;
+  padding: 5px 7px;
+  height: 400px;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  border-top: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.2);
+
+}
+.resultRow {
+  padding-left: 0;
+}
+.resultName {
+  color: #c73636;
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
+  padding-top: 0;
+  padding-bottom: 5px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+.resultWords {
+  height: 320px;
+  overflow: scroll;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  margin-top: 10px;
+  padding: 5px 15px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: inset 3px 3px 12px -4px rgba(26,26,26,0.34);
+}
+
+.resultInfo {
+  margin-top: -5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h4 {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: 'Quicksand', sans-serif;
+  padding: 0;
+  padding-right: 5px;
+  margin: 0;
+  display: inline;
+}
+
+.infoText {
+  display: inline;
+  margin-top: -5px;
+  font-size: 15px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.infoPoint {
+  margin-bottom: 5px;
+}
+
+hr.info {
+  border-color: black;
+  color: black;
+  width: 50%;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+#faViews {
+  color: #c73636;
+  margin-right: 5px;
+
+}
+#faFavorites {
+  color: #c73636;
+  margin-right: 5px;
+}
+#faFave {
+  text-align: center;
+  color: white;
+  margin-right: 5px;
+  font-size: 20px;
+  padding-left: 4px;
+  padding-top: 2px;
+}
+.favoriteButton {
+  text-align: center;
+}

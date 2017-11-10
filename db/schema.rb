@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20171106232514) do
   create_table "libraries", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
+    t.integer "play_count"
+    t.integer "favorite_count"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

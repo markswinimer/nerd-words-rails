@@ -25,7 +25,5 @@ class Api::V1::WordsController < ApplicationController
         WordLibrary.create!(word: new_word, library: currentLibrary)
       end
     end
-
   end
-
 end
