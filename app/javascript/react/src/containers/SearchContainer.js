@@ -20,7 +20,6 @@ class SearchContainer extends React.Component {
   }
 
   handleFilter(event) {
-    debugger
     this.props.makeSearch(event.target.id)
   }
 

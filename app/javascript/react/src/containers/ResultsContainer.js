@@ -10,28 +10,35 @@ class ResultsContainer extends React.Component {
   }
 
   render() {
-    let results;
-    if(this.props.results) {
-      results = this.props.results.map(result => {
-        return(
-          <div>
-          </div>
-        )
+    let searchResults;
+    if(this.props.searchResults) {
+      let i = 0
+      let leftResult;
+      searchResults = this.props.searchResults["result"].map(result => {
+        if(i === 0) {
+          leftResult = result
+          i = 1
+        } else if(i === 1) {
+          i = 0
+          return(
+            <div className="small-12 large-12 columns resultRow">
+              <ResultTile
+                key={result.name}
+                result={result}
+              />
+              <ResultTile
+                key={leftResult.name}
+                result={leftResult}
+              />
+            </div>
+          )
+        }
       })
     }
 
     return(
       <div className="small-12 large-12 columns">
-        <div className="small-12 large-12 columns resultRow">
-          <hr/>
-          <ResultTile/>
-          <ResultTile/>
-        </div>
-        <div className="small-12 large-12 columns resultRow">
-          <hr/>
-          <ResultTile/>
-          <ResultTile/>
-        </div>
+        {searchResults}
       </div>
     )
   }

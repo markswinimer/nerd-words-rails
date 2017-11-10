@@ -124,6 +124,8 @@ input.searchInput {
   padding-bottom: 5px;
 }
 .resultWords {
+  height: 320px;
+  overflow: scroll;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   margin-top: 10px;
@@ -177,10 +179,11 @@ hr.info {
 }
 #faFave {
   text-align: center;
-  color: #c73636;
+  color: white;
   margin-right: 5px;
   font-size: 20px;
-  padding-top: 6px;
+  padding-left: 4px;
+  padding-top: 2px;
 }
 .favoriteButton {
   text-align: center;

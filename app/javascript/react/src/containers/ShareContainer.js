@@ -6,18 +6,23 @@ class ShareContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResult: null
+      searchResults: null
     }
     this.makeSearch = this.makeSearch.bind(this)
   }
 
   makeSearch(searchValue) {
+    let search = { search: searchValue }
     fetch('/api/v1/searches.json', {
       credentials: 'same-origin',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(searchValue)}
+      body: JSON.stringify(search) }
     )
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ searchResults: body })
+    })
   }
 
   render() {
@@ -32,7 +37,9 @@ class ShareContainer extends React.Component {
              />
           </div>
           <div className="small-12 large-12 columns searchResultsContainer">
-            <ResultsContainer />
+            <ResultsContainer
+              searchResults={this.state.searchResults}
+            />
           </div>
         </div>
         <div className="small-1 large-1 columns shareLeft">
