@@ -17,14 +17,14 @@ class ResultsContainer extends React.Component {
   render() {
     let searchResults;
     if(this.props.searchResults) {
-      let i = 0
+      let i = 1
       let leftResult;
       searchResults = this.props.searchResults["result"].map(result => {
-        if(i === 0) {
+        if( (i % 2) === 1 ) {
           leftResult = result
-          i = 1
-        } else if(i === 1) {
-          i = 0
+          i += 1
+        } else if( (i % 2) === 0 ) {
+          i += 1
           return(
             <div className="small-12 large-12 columns resultRow">
               <ResultTile
