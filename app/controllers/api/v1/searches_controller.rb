@@ -10,6 +10,7 @@ class Api::V1::SearchesController < ApplicationController
         words = library.words
         libraryArray << { name: libraryName, words: words, data: library, creator: library.user.username  }
     end
+
     elsif searchParam == "top10"
 
     elsif searchParam == "top5"
