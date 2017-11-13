@@ -2,7 +2,7 @@ class Api::V1::WordsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
   protect_from_forgery unless -> { request.format.json? }
-  
+
   def index
     words = current_user.words
     render json: { words: words }
@@ -20,14 +20,15 @@ class Api::V1::WordsController < ApplicationController
 
     body["library"].each do |word|
       word_name = word[1]
-      if Word.where(name: word_name).blank? && word_name != ""
+      if Word.where(name: word_name).blank?
         new_word = Word.create!(name: word_name, user: user)
         WordLibrary.create!(word: new_word, library: currentLibrary)
-      elsif word_name != ""
+      else
         new_word = Word.find_by(name: word_name)
         WordLibrary.create!(word: new_word, library: currentLibrary)
       end
     end
+
     returnLibrary = {
       library_id: currentLibrary.id,
       name: currentLibrary.name,

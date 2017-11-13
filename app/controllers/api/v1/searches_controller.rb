@@ -33,7 +33,6 @@ protect_from_forgery unless -> { request.format.json? }
       words = library.words
       libraryArray << { name: libraryName, words: words, data: library, creator: library.user.username  }
     end
-
     render json: { result: libraryArray }
   end
 end

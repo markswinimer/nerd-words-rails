@@ -1,7 +1,7 @@
 class Api::V1::GamesController < ApplicationController
   skip_before_action :verify_authenticity_token
   protect_from_forgery unless -> { request.format.json? }
-  
+
   def show
     user = current_user
     game = Game.find(params[:id])
@@ -26,11 +26,11 @@ class Api::V1::GamesController < ApplicationController
     gameData = params[:gameData]
     user = User.find(params[:user][:id])
     players = params[:players]
-
+    wordLibrary = Library.find(gameData[:libraryId])
     game = Game.create!(
       mode: gameData[:gameMode],
       player_count: gameData[:playerCount],
-      library: Library.find(gameData[:libraryId]),
+      library: wordLibrary,
       user: user
     )
     gamePlayers = players.keys
@@ -40,6 +40,12 @@ class Api::V1::GamesController < ApplicationController
     library = {}
     library["name"] = game.library.name
     library["words"] = game.library.words
+
+    if game.save
+      newPlayCount = (wordLibrary.play_count + 1)
+      wordLibrary.update(play_count: newPlayCount)
+      binding.pry
+    end
     render json: { game: game}
   end
 

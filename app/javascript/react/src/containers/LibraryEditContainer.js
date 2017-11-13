@@ -3,37 +3,19 @@ import WordInputField from '../components/WordInputField.js'
 import DifficultyRadioField from '../components/DifficultyRadioField.js'
 import TextAreaField from '../components/TextAreaField.js'
 
-class LibraryNewContainter extends React.Component {
+class LibraryEditContainter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       library: "",
       title: "",
       description: "",
-      header: "Create New Library",
-      inputCount: null
+      header: "Create New Library"
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleDetails = this.handleDetails.bind(this)
-    this.populateEmptyInputs = this.populateEmptyInputs.bind(this)
   }
-
-  populateEmptyInputs() {
-    let i = this.state.inputCount
-    let max = (this.state.inputCount + 50)
-    let libraryClone = this.state.library
-    while(i < max) {
-      let word = "word" + i
-      libraryClone[word] = ""
-      i += 1
-    }
-    let newInputCount = (this.state.inputCount + 50)
-    this.setState({
-      library: libraryClone,
-      inputCount: newInputCount
-      })
-    }
 
   componentDidMount() {
     let library = {}
@@ -44,10 +26,7 @@ class LibraryNewContainter extends React.Component {
         library[word] = ""
         i += 1
         }
-        this.setState({
-          library: library,
-          inputCount: 50
-        })
+        this.setState({library: library})
       } else {
         let newWord = ""
         this.props.currentLibrary.library.words.forEach(word => {
@@ -58,27 +37,20 @@ class LibraryNewContainter extends React.Component {
           library: library,
           title: this.props.currentLibrary.library.name,
           description: this.props.currentLibrary.library.description,
-          header: this.props.currentLibrary.library.name,
+          header: this.props.currentLibrary.library.name
          })
       }
     }
 
     handleSubmit() {
-      let library = this.state.library
-      Object.keys(library).forEach((key) => (library[key] == "") && delete library[key]);
-
       let formPayload = {
-        library: library,
+        library: this.state.library,
         title: this.state.title,
         description: this.state.description,
         user: this.props.user_info
       }
 
       this.props.handleSubmit(formPayload)
-    }
-
-    handleAdd50(event) {
-
     }
 
     handleChange(event){
@@ -117,7 +89,7 @@ class LibraryNewContainter extends React.Component {
         <div className="small-12 large-12 columns libraryTopRight">
         </div>
           <div className="small-12 large-12 columns newLibraryInfo">
-            <div className="listHeader">{this.state.header}</div>
+            <div className="listHeader">{this.state.header} [Editing]</div>
           <hr className="hrLibrary" />
         <div className="newFormContainer">
           <div className="small-6 large-6 columns leftLibraryForm">
@@ -141,7 +113,6 @@ class LibraryNewContainter extends React.Component {
               />
               <div className="newFormButtons">
                 <button id="save" className="submitButton" onClick={this.handleSubmit}>Save</button>
-                <button id="save" className="submitButton" onClick={this.populateEmptyInputs}>+50</button>
             </div>
           </div>
         </div>
@@ -152,4 +123,4 @@ class LibraryNewContainter extends React.Component {
   }
 }
 
-export default LibraryNewContainter
+export default LibraryEditContainter
