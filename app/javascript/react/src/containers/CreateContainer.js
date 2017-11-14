@@ -3,6 +3,7 @@ import LibraryListContainer from './LibraryListContainer.js'
 import LibraryFavoriteListContainer from './LibraryFavoriteListContainer.js'
 import LibraryMenuContainer from './LibraryMenuContainer.js'
 import LibraryNewContainer from './LibraryNewContainer.js'
+import LibraryEditContainer from './LibraryEditContainer.js'
 import LibraryContentsContainer from './LibraryContentsContainer.js'
 import LibraryWordsContainer from './LibraryWordsContainer.js'
 
@@ -17,7 +18,9 @@ class CreateContainer extends React.Component {
       user_libraries: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
     this.changeCurrentLibrary = this.changeCurrentLibrary.bind(this)
+    this.changeCurrentFavorites = this.changeCurrentFavorites.bind(this)
     this.handleMenu = this.handleMenu.bind(this)
     this.changeMenu = this.changeMenu.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -55,11 +58,25 @@ class CreateContainer extends React.Component {
     .then(body => {
       this.setState({
       currentLibrary: body,
-      menuContent: "viewLibrary"
+      menuContent: "viewLibrary",
       })
     })
   }
 
+  changeCurrentFavorites(libraryId) {
+    fetch(`/api/v1/libraries/${libraryId}`, {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(respone => respone.json())
+    .then(body => {
+      this.setState({
+      currentLibrary: body,
+      menuContent: "viewFavorites",
+      })
+    })
+  }
 
   handleMenu(event) {
     this.setState({menuContent: event.target.id})
@@ -67,6 +84,23 @@ class CreateContainer extends React.Component {
   changeMenu(menu) {
     this.getUserLibraries()
     this.setState({menuContent: menu})
+  }
+
+  handleUpdate(formPayload) {
+    let id = this.state.currentLibrary.library.library_id
+    fetch(`/api/v1/libraries/${id}.json`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formPayload)}
+    )
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+      currentLibrary: body,
+      menuContent: "viewLibrary"
+      })
+    })
   }
 
   handleSubmit(formPayload) {
@@ -82,8 +116,7 @@ class CreateContainer extends React.Component {
       currentLibrary: body,
       menuContent: "viewLibrary"
       })
-    }
-    )
+    })
   }
 
   getUserLibraries() {
@@ -123,12 +156,12 @@ class CreateContainer extends React.Component {
         />
       } else if (this.state.menuContent === "myFavorites") {
         activeContent = <LibraryFavoriteListContainer
-          handleClick={this.changeCurrentLibrary}
+          handleClick={this.changeCurrentFavorites}
           user_info={this.state.user_info}
           user_libraries={this.state.user_libraries}
           currentLibrary={currentLibrary}
           />
-      } else if ((this.state.menuContent === "newLibrary") || (this.state.menuContent === "editLibrary")) {
+      } else if (this.state.menuContent === "newLibrary") {
         activeContent = <LibraryNewContainer
           handleSubmit={this.handleSubmit}
           handleClick={this.changeCurrentLibrary}
@@ -144,6 +177,25 @@ class CreateContainer extends React.Component {
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
           currentLibrary={currentLibrary}
+          isFavorites={false}
+          />
+      } else if (this.state.menuContent === "viewFavorites") {
+        activeContent = <LibraryContentsContainer
+          handleSubmit={this.handleSubmit}
+          handleMenu={this.handleMenu}
+          handleDelete={this.handleDelete}
+          handleClick={this.changeCurrentFavorites}
+          user_info={this.state.user_info}
+          currentLibrary={currentLibrary}
+          isFavorites={true}
+          />
+      } else if (this.state.menuContent === "editLibrary") {
+        activeContent = <LibraryEditContainer
+          handleUpdate={this.handleUpdate}
+          handleClick={this.changeCurrentLibrary}
+          user_info={this.state.user_info}
+          currentLibrary={currentLibrary}
+          menuContent={this.state.menuContent}
           />
       } else if (this.state.menuContent === "viewAllWords") {
         activeContent = <LibraryWordsContainer

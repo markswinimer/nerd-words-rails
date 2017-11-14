@@ -9,11 +9,11 @@ protect_from_forgery unless -> { request.format.json? }
     if searchParam["search"] == "all"
       results = Library.all
 
-    elsif searchParam["search"] == "top10"
+    elsif searchParam["search"] == "top10PlayCount"
       results = Library.order(play_count: :desc)[0,10]
 
-    elsif searchParam["search"] == "top5"
-      results = Library.order(play_count: :desc)[0,5]
+    elsif searchParam["search"] == "top10Favorite"
+      results = Library.order(favorite_count: :desc)[0,10]
 
     else
       words = Word.where("lower(name) LIKE ?", "%#{searchParam["search"].downcase}%")
@@ -24,7 +24,6 @@ protect_from_forgery unless -> { request.format.json? }
           results << library
         end
       end
-
     end
 
     libraryArray = []

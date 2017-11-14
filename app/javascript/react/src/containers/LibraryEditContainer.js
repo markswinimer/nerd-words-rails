@@ -10,47 +10,62 @@ class LibraryEditContainter extends React.Component {
       library: "",
       title: "",
       description: "",
-      header: "Create New Library"
+      inputCount: null,
+      originalLib: null,
+      newLib: null
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleDetails = this.handleDetails.bind(this)
+    this.populateEmptyInputs = this.populateEmptyInputs.bind(this)
   }
+
+  populateEmptyInputs() {
+    let i = this.state.inputCount
+    let max = (this.state.inputCount + 50)
+    let libraryClone = this.state.library
+    while(i < max) {
+      let word = "word" + i
+      libraryClone[word] = ""
+      i += 1
+    }
+    let newInputCount = (this.state.inputCount + 50)
+    this.setState({
+      library: libraryClone,
+      originalLib: libraryClone,
+      inputCount: newInputCount
+      })
+    }
 
   componentDidMount() {
     let library = {}
-    if(this.props.menuContent === "newLibrary") {
-      let i = 0;
-      while(i < 50) {
-        let word = "word" + i
-        library[word] = ""
-        i += 1
-        }
-        this.setState({library: library})
-      } else {
-        let newWord = ""
-        this.props.currentLibrary.library.words.forEach(word => {
-          newWord = "word" + word.id
-          library[newWord] = word.name
-        })
-        this.setState({
-          library: library,
-          title: this.props.currentLibrary.library.name,
-          description: this.props.currentLibrary.library.description,
-          header: this.props.currentLibrary.library.name
-         })
-      }
+    let newWord = ""
+    let currentLibrary = this.props.currentLibrary.library.words
+    currentLibrary.forEach(word => {
+      newWord = "word" + word.id
+      library[newWord] = word.name
+    })
+    this.setState({
+      library: library,
+      title: this.props.currentLibrary.library.name,
+      description: this.props.currentLibrary.library.description,
+      header: this.props.currentLibrary.library.name,
+      inputCount: currentLibrary.length
+     })
     }
 
-    handleSubmit() {
+    handleUpdate() {
+      let library = this.state.library
+      Object.keys(library).forEach((key) => (library[key] == "") && delete library[key]);
+
       let formPayload = {
-        library: this.state.library,
+        library: library,
         title: this.state.title,
         description: this.state.description,
-        user: this.props.user_info
+        id: this.props.currentLibrary.library_id
       }
 
-      this.props.handleSubmit(formPayload)
+      this.props.handleUpdate(formPayload)
     }
 
     handleChange(event){
@@ -70,13 +85,12 @@ class LibraryEditContainter extends React.Component {
       let lib = this.state.library
       let list = Object.entries(lib)
       list.forEach(word => {
-        let value = this.state.library[word[0]]
         inputContainer.push(
           <WordInputField
             key={"w" + i}
             id={"w" + i}
             name={word[0]}
-            value={value}
+            value={this.state.library[word[0]]}
             handleDetails={this.handleChange}
           />
         )
@@ -112,7 +126,8 @@ class LibraryEditContainter extends React.Component {
               handleDetails={this.handleDetails}
               />
               <div className="newFormButtons">
-                <button id="save" className="submitButton" onClick={this.handleSubmit}>Save</button>
+                <button id="save" className="submitButton" onClick={this.handleUpdate}>Save</button>
+                <button id="save" className="submitButton" onClick={this.populateEmptyInputs}>+50</button>
             </div>
           </div>
         </div>

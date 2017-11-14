@@ -44,7 +44,6 @@ class Api::V1::GamesController < ApplicationController
     if game.save
       newPlayCount = (wordLibrary.play_count + 1)
       wordLibrary.update(play_count: newPlayCount)
-      binding.pry
     end
     render json: { game: game}
   end

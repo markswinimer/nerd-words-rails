@@ -13,11 +13,12 @@ class Api::V1::WordsController < ApplicationController
     user = User.find(body["user"]["user"]["id"])
     name = body["title"]
     description = body["description"]
+
     if Library.where(name: name).blank?
       library = Library.create!(name: name, description: description, user: user)
     end
-    currentLibrary = Library.find_by(name: name)
 
+    currentLibrary = Library.find_by(name: name)
     body["library"].each do |word|
       word_name = word[1]
       if Word.where(name: word_name).blank?
@@ -28,7 +29,7 @@ class Api::V1::WordsController < ApplicationController
         WordLibrary.create!(word: new_word, library: currentLibrary)
       end
     end
-
+    
     returnLibrary = {
       library_id: currentLibrary.id,
       name: currentLibrary.name,
