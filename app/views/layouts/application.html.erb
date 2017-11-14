@@ -25,15 +25,16 @@
           <% if user_signed_in? %>
             <li class="active sign-in"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <% else %>
+          <li class="active sign-in"><%= link_to 'DEMO Log In', user_session_path %></li>
           <li class="active sign-in"><%= link_to 'Log In', new_user_session_path %></li>
-            <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <% end %>
           <li class="has-dropdown">
             <a href="#">| | |</a>
-            <ul class="dropdown">
+            <!-- <ul class="dropdown">
               <li><a href="#">Profile</a></li>
               <li class="active"><a href="#">Help</a></li>
-            </ul>
+            </ul> -->
           </li>
         </ul>
         <ul class="left">

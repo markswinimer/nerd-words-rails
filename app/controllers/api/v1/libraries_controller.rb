@@ -2,6 +2,7 @@ class Api::V1::LibrariesController < ApplicationController
   skip_before_action :verify_authenticity_token
   protect_from_forgery unless -> { request.format.json? }
 
+
   def index
     libraries = current_user.libraries
     favorites = current_user.favorites

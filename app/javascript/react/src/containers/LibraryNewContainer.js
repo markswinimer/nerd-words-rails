@@ -19,21 +19,6 @@ class LibraryNewContainter extends React.Component {
     this.populateEmptyInputs = this.populateEmptyInputs.bind(this)
   }
 
-  populateEmptyInputs() {
-    let i = this.state.inputCount
-    let max = (this.state.inputCount + 50)
-    let libraryClone = this.state.library
-    while(i < max) {
-      let word = "word" + i
-      libraryClone[word] = ""
-      i += 1
-    }
-    let newInputCount = (this.state.inputCount + 50)
-    this.setState({
-      library: libraryClone,
-      inputCount: newInputCount
-      })
-    }
 
   componentDidMount() {
     let library = {}
@@ -63,6 +48,22 @@ class LibraryNewContainter extends React.Component {
       }
     }
 
+    populateEmptyInputs() {
+      let i = this.state.inputCount
+      let max = (this.state.inputCount + 50)
+      let libraryClone = this.state.library
+      while(i < max) {
+        let word = "word" + i
+        libraryClone[word] = ""
+        i += 1
+      }
+      let newInputCount = (this.state.inputCount + 50)
+      this.setState({
+        library: libraryClone,
+        inputCount: newInputCount
+      })
+    }
+
     handleSubmit() {
       let library = this.state.library
       Object.keys(library).forEach((key) => (library[key] == "") && delete library[key]);
@@ -73,12 +74,7 @@ class LibraryNewContainter extends React.Component {
         description: this.state.description,
         user: this.props.user_info
       }
-
       this.props.handleSubmit(formPayload)
-    }
-
-    handleAdd50(event) {
-
     }
 
     handleChange(event){

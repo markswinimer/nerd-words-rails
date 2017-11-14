@@ -4,11 +4,13 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <div class="field">
+    <p class="demoLogIn">Demo Email: "demo@gmail.com"</p>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
+    <p class="demoLogIn">Demo Password: "123456"</p>
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
