@@ -1,4 +1,9 @@
-.shareContainer {
+.errorMessage {
+  color: #fc0000;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  display: inline-block;
+  padding-left: 10px;
 }
 
 .searchContainer {
@@ -12,7 +17,6 @@
   margin-top: 20px;
   background-color: white;
 }
-
 .shareLeft {
   height: 100vh;
   padding-right: 15px;
@@ -22,9 +26,7 @@
   padding-left: 10px;
 }
 .filterContainer {
-
   background-color: #f6f6f6;
-
 }
 #filterBy {
   text-align: left;
@@ -52,7 +54,6 @@
 .searchBarButton{
   width: 80px;
   height: 36px;
-  float: left;
   background-color: #c73636;
   color: white;
   border-bottom: 2px solid #333333;

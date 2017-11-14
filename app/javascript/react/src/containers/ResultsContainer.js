@@ -16,15 +16,15 @@ class ResultsContainer extends React.Component {
 
   render() {
     let searchResults;
+
     if(this.props.searchResults) {
       let i = 0
+      let num = 0
       let leftResult;
+      let arrayLength = this.props.searchResults["result"].length
       searchResults = this.props.searchResults["result"].map(result => {
-        if(i === 0) {
-          leftResult = result
-          i = 1
-        } else if(i === 1) {
-          i = 0
+        num += 1
+        if(num == arrayLength) {
           return(
             <div className="small-12 large-12 columns resultRow">
               <ResultTile
@@ -32,16 +32,30 @@ class ResultsContainer extends React.Component {
                 result={result}
                 handleFavorite={this.handleFavorite}
               />
+            </div>
+          )
+        } else if (i === 0) {
+          leftResult = result
+          i = 1
+        } else {
+          i = 0
+          return(
+            <div className="small-12 large-12 columns resultRow">
               <ResultTile
                 key={leftResult.name}
                 result={leftResult}
+                handleFavorite={this.handleFavorite}
+              />
+              <ResultTile
+                key={result.name}
+                result={result}
                 handleFavorite={this.handleFavorite}
               />
             </div>
           )
         }
       })
-    }
+      }
 
     return(
       <div className="small-12 large-12 columns">

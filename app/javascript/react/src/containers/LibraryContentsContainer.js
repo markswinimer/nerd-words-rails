@@ -13,9 +13,16 @@ class LibraryContentsContainer extends React.Component {
     this.props.handleDelete(this.props.currentLibrary.library.library_id)
   }
 
-
   render() {
     let currentLibrary = [];
+    let editButtons;
+    if(this.props.isFavorites === false) {
+     editButtons =
+        <div className="newFormButtons">
+          <button id="editLibrary" className="submitButton" onClick={this.props.handleMenu}>Edit</button>
+          <button className="submitButton" onClick={this.handleDelete}>Delete</button>
+        </div>
+      }
     if(this.props.currentLibrary) {
      currentLibrary = this.props.currentLibrary.library.words.map(word => {
       return(
@@ -38,10 +45,7 @@ class LibraryContentsContainer extends React.Component {
             {currentLibrary}
         </div>
           <div className="small-6 large-6 columns rightLibraryForm">
-            <div className="newFormButtons">
-              <button id="editLibrary" className="submitButton" onClick={this.props.handleMenu}>Edit</button>
-              <button className="submitButton" onClick={this.handleDelete}>Delete</button>
-            </div>
+            {editButtons}
           </div>
         </div>
       </div>

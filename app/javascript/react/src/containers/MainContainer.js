@@ -32,7 +32,9 @@ class MainContainer extends React.Component {
           </div>
           <div className="whiteSlab">
           </div>
-          <HomeLinks />
+          <HomeLinks
+            current_user={this.state.current_user}
+          />
           <div className="whiteBottom"></div>
           <div className="bottomBorder"></div>
         </div>

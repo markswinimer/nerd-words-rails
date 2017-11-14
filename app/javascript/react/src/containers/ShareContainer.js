@@ -15,8 +15,8 @@ class ShareContainer extends React.Component {
   makeSearch(searchValue) {
     let search = { search: searchValue }
     fetch('/api/v1/searches.json', {
-      credentials: 'same-origin',
       method: 'POST',
+      credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(search) }
     )
@@ -27,7 +27,6 @@ class ShareContainer extends React.Component {
   }
 
   handleFavorite(id) {
-    debugger
     fetch('/api/v1/favorites.json', {
       credentials: 'same-origin',
       method: 'POST',

@@ -4,7 +4,6 @@ const WordInputField = props => {
   return(
     <label>
       <input
-        placeholder={props.placeholder}
         className="wordListElement"
         name={props.name}
         onChange={props.handleDetails}

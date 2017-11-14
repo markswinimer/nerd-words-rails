@@ -146,7 +146,8 @@ class PlayMenuContainer extends React.Component {
             <hr className="hrMenu"/>
             <div className="block-display">
               <button onClick={this.handleSelect} id="playClassic" className={playClassic}>Classic</button>
-              <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Simply Random</button>
+              {/* Disabled Temporarily */}
+              {/* <button onClick={this.handleSelect} id="playCustom" className={playCustom}>Simply Random</button> */}
             </div>
           </div>
 
@@ -165,7 +166,8 @@ class PlayMenuContainer extends React.Component {
               {myLibraries}
               <button onClick={this.handleLibraryOption} id="favorites" className={favoriteButton}>Favorites</button>
               {myFavorites}
-              <button onClick={this.handleLibraryOption} id="random" className={randomButton}>Random!</button>
+              {/* Disabled Temporarily */}
+              {/* <button onClick={this.handleLibraryOption} id="random" className={randomButton}>Random!</button> */}
               {randomLibrary}
             </div>
           </div>
