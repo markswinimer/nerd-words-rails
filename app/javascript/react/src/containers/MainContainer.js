@@ -11,17 +11,17 @@ class MainContainer extends React.Component {
     //bindings
   }
 
-  componentDidMount() {
-    fetch('/api/v1/users.json', {
-      credentials: 'same-origin',
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.setState({ current_user: data.user });
-    })
-  }
+  // componentDidMount() {
+  //   fetch('/api/v1/users.json', {
+  //     credentials: 'same-origin',
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' }
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     this.setState({ current_user: data.user });
+  //   })
+  // }
 
   render() {
     return(
@@ -33,7 +33,6 @@ class MainContainer extends React.Component {
           <div className="whiteSlab">
           </div>
           <HomeLinks
-            current_user={this.state.current_user}
           />
           <div className="whiteBottom"></div>
           <div className="bottomBorder"></div>
