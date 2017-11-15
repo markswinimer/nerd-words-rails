@@ -19,10 +19,10 @@ class GameContainer extends React.Component {
     this.handleScore = this.handleScore.bind(this)
     this.setCurrentWord = this.setCurrentWord.bind(this)
   }
-
-
+  
+  //choose random index and return item from an array
+  //and remove the item from array
   getRandom(length) { return Math.floor(Math.random()*(length)); }
-
   getRandomWord(array, size) {
       var length = array.length;
 
@@ -32,10 +32,29 @@ class GameContainer extends React.Component {
           array[index] = array[i];
           array[i] = temp;
       }
-
       return array.slice(0, size);
-  }
+    }
 
+    componentDidMount() {
+      if(this.state.gameData == null) {
+        let gameId = this.props.params.id
+        fetch(`/api/v1/games/${gameId}`, {
+          credentials: 'same-origin',
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .then(respone => respone.json())
+        .then(body => {
+          this.setState({
+            user: body.user,
+            gameData: body.game,
+            library: body.library,
+            players: body.players,
+            deck: body.deck
+          })
+        })
+      }
+    }
 
   setCurrentWord() {
     if(this.state.deck == null) {
@@ -61,30 +80,8 @@ class GameContainer extends React.Component {
     }
   }
 
-
-  componentDidMount() {
-    if(this.state.gameData == null) {
-      let gameId = this.props.params.id
-      fetch(`/api/v1/games/${gameId}`, {
-        credentials: 'same-origin',
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(respone => respone.json())
-      .then(body => {
-        this.setState({
-          user: body.user,
-          gameData: body.game,
-          library: body.library,
-          players: body.players,
-          deck: body.deck
-        })
-      })
-    }
-  }
-
+  //give player points for scoring
   handleScore(event) {
-    //give player points for scoring
     let history = this.state.wordHistory
     history.push(this.state.currentWord)
     let score = parseInt(this.state.players[this.state.currentPlayer].score)
@@ -120,13 +117,13 @@ class GameContainer extends React.Component {
         currentPlayer={this.state.currentPlayer}
         />
       gameRoundContainer =
-      <GameRoundContainer
+        <GameRoundContainer
         handleScore={this.handleScore}
         setCurrentWord={this.setCurrentWord}
         currentWord={this.state.currentWord}
         libraryName={this.state.library.name}
         roundNumber={this.state.round}
-      />
+        />
       }
     return(
       <div className="small-12 large-12 columns gameplayContainer">
