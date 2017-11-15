@@ -8,22 +8,29 @@ class MainContainer extends React.Component {
     this.state = {
       current_user: null
     }
-    //bindings
   }
 
-  // componentDidMount() {
-  //   fetch('/api/v1/users.json', {
-  //     credentials: 'same-origin',
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json' }
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     this.setState({ current_user: data.user });
-  //   })
-  // }
+  componentDidMount() {
+    fetch('/api/v1/users.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ current_user: data.user });
+    })
+  }
 
   render() {
+    let homeLinks;
+    if (this.state.current_user) {
+      homeLinks =
+        <HomeLinks
+          user_info={this.state.current_user}
+        />
+    }
+
     return(
       <div>
         <div className="whiteTop"></div>
@@ -32,8 +39,7 @@ class MainContainer extends React.Component {
           </div>
           <div className="whiteSlab">
           </div>
-          <HomeLinks
-          />
+            {homeLinks}
           <div className="whiteBottom"></div>
           <div className="bottomBorder"></div>
         </div>

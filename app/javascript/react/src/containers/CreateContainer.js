@@ -85,7 +85,6 @@ class CreateContainer extends React.Component {
     this.getUserLibraries()
     this.setState({menuContent: menu})
   }
-
   handleUpdate(formPayload) {
     let id = this.state.currentLibrary.library.library_id
     fetch(`/api/v1/libraries/${id}.json`, {
