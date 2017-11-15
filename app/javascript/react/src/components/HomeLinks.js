@@ -11,6 +11,7 @@ class HomeLinks extends React.Component {
   }
 
   render() {
+
     let createButton =
       <a href='/users/sign_in'>
         <div className="homeHeader">CREATE</div>

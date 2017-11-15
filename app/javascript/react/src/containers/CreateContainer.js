@@ -144,24 +144,30 @@ class CreateContainer extends React.Component {
     if(this.state.currentLibrary) {
       currentLibrary = this.state.currentLibrary
     }
+
+    // This statement directs the flow of the create page
+    //Should eventually be handled entirely using React Router
     let activeContent = null;
     if(this.state.user_info) {
       if(this.state.menuContent === "myLibrary") {
-      activeContent = <LibraryListContainer
+      activeContent =
+        <LibraryListContainer
         handleClick={this.changeCurrentLibrary}
         user_info={this.state.user_info}
         user_libraries={this.state.user_libraries}
         currentLibrary={currentLibrary}
         />
       } else if (this.state.menuContent === "myFavorites") {
-        activeContent = <LibraryFavoriteListContainer
+        activeContent =
+          <LibraryFavoriteListContainer
           handleClick={this.changeCurrentFavorites}
           user_info={this.state.user_info}
           user_libraries={this.state.user_libraries}
           currentLibrary={currentLibrary}
           />
       } else if (this.state.menuContent === "newLibrary") {
-        activeContent = <LibraryNewContainer
+        activeContent =
+          <LibraryNewContainer
           handleSubmit={this.handleSubmit}
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
@@ -169,7 +175,8 @@ class CreateContainer extends React.Component {
           menuContent={this.state.menuContent}
           />
       } else if (this.state.menuContent === "viewLibrary") {
-        activeContent = <LibraryContentsContainer
+        activeContent =
+          <LibraryContentsContainer
           handleSubmit={this.handleSubmit}
           handleMenu={this.handleMenu}
           handleDelete={this.handleDelete}
@@ -179,7 +186,8 @@ class CreateContainer extends React.Component {
           isFavorites={false}
           />
       } else if (this.state.menuContent === "viewFavorites") {
-        activeContent = <LibraryContentsContainer
+        activeContent =
+          <LibraryContentsContainer
           handleSubmit={this.handleSubmit}
           handleMenu={this.handleMenu}
           handleDelete={this.handleDelete}
@@ -189,7 +197,8 @@ class CreateContainer extends React.Component {
           isFavorites={true}
           />
       } else if (this.state.menuContent === "editLibrary") {
-        activeContent = <LibraryEditContainer
+        activeContent =
+          <LibraryEditContainer
           handleUpdate={this.handleUpdate}
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
@@ -197,7 +206,8 @@ class CreateContainer extends React.Component {
           menuContent={this.state.menuContent}
           />
       } else if (this.state.menuContent === "viewAllWords") {
-        activeContent = <LibraryWordsContainer
+        activeContent =
+          <LibraryWordsContainer
           handleClick={this.changeCurrentLibrary}
           user_info={this.state.user_info}
           user_libraries={this.state.user_libraries}
@@ -208,18 +218,17 @@ class CreateContainer extends React.Component {
       <div className="small-12 large-12 createLibraryContainer">
         <div className="small-3 large-3 columns leftContainer">
           <div className="small-1 large-1 columns">
-
           </div>
           <div className="small-11 large-11 columns">
-          <LibraryMenuContainer
-            handleMenu={this.handleMenu}
-            handleClick={this.changeCurrentLibrary}
-            currentLibrary={currentLibrary}
+            <LibraryMenuContainer
+              handleMenu={this.handleMenu}
+              handleClick={this.changeCurrentLibrary}
+              currentLibrary={currentLibrary}
             />
           </div>
         </div>
         <div className="small-9 large-9 columns rightContainer">
-            {activeContent}
+          {activeContent}
         </div>
       </div>
     )
