@@ -4,16 +4,14 @@ import ListElement from '../components/ListElement.js'
 class ScoreContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
-    //binding
   }
+
   render() {
     let remaining;
     if(this.props.deck != null) {
       remaining = this.props.deck.length
     }
+
     let playerNames;
     playerNames = this.props.players.map( player => {
       let className = "playerScore"
@@ -30,7 +28,6 @@ class ScoreContainer extends React.Component {
 
     let wordsPlayed;
     if(this.props.wordHistory) {
-
       wordsPlayed = this.props.wordHistory.map(word => {
         return(
           <ListElement
@@ -44,7 +41,6 @@ class ScoreContainer extends React.Component {
       <div className="small-2 large-2 columns scoreColumn">
         <div className="scoreHeader">SCORE</div>
         <hr className="hrLibrary" />
-
         {playerNames}
         <div className="gameDeck">
           <div className="scoreHeader">DECK</div>

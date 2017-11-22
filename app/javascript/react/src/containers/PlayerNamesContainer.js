@@ -12,26 +12,6 @@ class PlayerNamesContainer extends React.Component {
     this.handlePlayerState = this.handlePlayerState.bind(this)
   }
 
-  handleSubmit(event) {
-    event.preventDefault()
-    let newGamePayload = {}
-    newGamePayload["gameData"] = this.props.gameData
-    newGamePayload["user"] = this.props.user_info.user
-    newGamePayload["players"] = this.state.playerCount
-    this.props.handleSubmit(newGamePayload)
-  }
-  handleChange(event) {
-    let newPlayerCount = this.state.playerCount
-    newPlayerCount[event.target.name] = event.target.value
-    this.setState({ newPlayerCount })
-  }
-  handleState(num) {
-    this.setState({ num })
-  }
-  handlePlayerState(playerCount) {
-    this.setState({ playerCount })
-  }
-
   componentDidMount() {
     if(this.state.playerCount == null) {
       let i = 1;
@@ -45,6 +25,28 @@ class PlayerNamesContainer extends React.Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault()
+    let newGamePayload = {}
+    newGamePayload["gameData"] = this.props.gameData
+    newGamePayload["user"] = this.props.user_info.user
+    newGamePayload["players"] = this.state.playerCount
+    this.props.handleSubmit(newGamePayload)
+  }
+
+  handleChange(event) {
+    let newPlayerCount = this.state.playerCount
+    newPlayerCount[event.target.name] = event.target.value
+    this.setState({ newPlayerCount })
+  }
+
+  handleState(num) {
+    this.setState({ num })
+  }
+
+  handlePlayerState(playerCount) {
+    this.setState({ playerCount })
+  }
 
   render() {
     let namesForm;
@@ -63,6 +65,7 @@ class PlayerNamesContainer extends React.Component {
         )
       })
     }
+    
     return(
       <div className="small-12 large-12 columns playerContainer">
         <div className="small-4 large-4 columns"></div>

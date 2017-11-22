@@ -25,8 +25,6 @@ class LibraryListContainer extends React.Component {
     })
   }
 
-
-
   return(
     <div>
       <div className="small-12 large-12 columns libraryTopRight">

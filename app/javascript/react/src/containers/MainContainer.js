@@ -25,10 +25,7 @@ class MainContainer extends React.Component {
   render() {
     let homeLinks;
     if (this.state.current_user) {
-      homeLinks =
-        <HomeLinks
-          user_info={this.state.current_user}
-        />
+      homeLinks = <HomeLinks user_info={this.state.current_user}/>
     }
 
     return(

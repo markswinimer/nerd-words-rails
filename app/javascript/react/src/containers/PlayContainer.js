@@ -105,7 +105,6 @@ class PlayContainer extends React.Component {
           <div id="suggestedBox" className="homeHeader">Suggested ways to play</div>
           <hr className="hrLibrary" />
       </div>
-
       <div className="small-12 large-12 columns instructionsContainer">
         <div className="small-4 large-4 columns box">
           <div className="suggestedBox">
@@ -136,7 +135,6 @@ class PlayContainer extends React.Component {
               </div>
         </div>
         </div>
-
         <div className="small-4 large-4 columns box">
           <Link to={path}>
           <button id="startButton" className="wordButtonView">Start!</button>
@@ -159,11 +157,11 @@ class PlayContainer extends React.Component {
       />
     }
     return(
-        <div className="small-12 large-12 playContainer">
-          {playContainer}
-        </div>
+      <div className="small-12 large-12 playContainer">
+        {playContainer}
+      </div>
     )
   }
-  }
+}
 
 export default PlayContainer

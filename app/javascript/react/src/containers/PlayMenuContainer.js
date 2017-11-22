@@ -19,10 +19,7 @@ class PlayMenuContainer extends React.Component {
     this.handleLibraryOption = this.handleLibraryOption.bind(this)
     this.handleSelectLibrary = this.handleSelectLibrary.bind(this)
   }
-
-
-
-
+  
   handleLibraryOption(event) {
     if(event.target.id === "myLibraries") {
       if(this.props.user_info.libraries.length > 0) {

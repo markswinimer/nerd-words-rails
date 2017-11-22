@@ -87,27 +87,28 @@ class LibraryNewContainter extends React.Component {
       this.setState({ [event.target.name]: event.target.value })
     }
 
-  render() {
-    let inputContainer = [];
-    let i = 0;
-    if(this.state.library) {
-      let lib = this.state.library
-      let list = Object.entries(lib)
-      list.forEach(word => {
-        let value = this.state.library[word[0]]
-        inputContainer.push(
-          <WordInputField
-            key={"w" + i}
-            id={"w" + i}
-            name={word[0]}
-            value={value}
-            handleDetails={this.handleChange}
-          />
-        )
-        i += 1
-      }
-    )
-  }
+    render() {
+      let inputContainer = [];
+      let i = 0;
+      if(this.state.library) {
+        let lib = this.state.library
+        let list = Object.entries(lib)
+        list.forEach(word => {
+          let value = this.state.library[word[0]]
+          inputContainer.push(
+            <WordInputField
+              key={"w" + i}
+              id={"w" + i}
+              name={word[0]}
+              value={value}
+              handleDetails={this.handleChange}
+            />
+          )
+          i += 1
+        }
+      )
+    }
+
     return(
       <div>
         <div className="small-12 large-12 columns libraryTopRight">

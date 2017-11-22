@@ -7,7 +7,6 @@ class LibraryWordsContainer extends React.Component {
     this.state = {
       myWords: ""
     }
-    //bind
   }
   componentDidMount() {
     fetch('/api/v1/words.json', {

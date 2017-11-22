@@ -5,6 +5,7 @@ class LibraryContentsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
     }
     this.handleDelete = this.handleDelete.bind(this)
   }

@@ -11,6 +11,12 @@ class GameRoundContainer extends React.Component {
     this.handleScore = this.handleScore.bind(this)
   }
 
+  componentDidMount() {
+    if (this.state.roundNumber === 0 ) {
+    this.setState({roundNumber: this.props.roundNumber})
+    }
+  }
+
   handleViewWord() {
     this.setState({roundStart: true})
     this.props.setCurrentWord()
@@ -24,12 +30,6 @@ class GameRoundContainer extends React.Component {
       roundStart: false,
       roundNumber: round
      })
-  }
-
-  componentDidMount() {
-    if (this.state.roundNumber === 0 ) {
-    this.setState({roundNumber: this.props.roundNumber})
-    }
   }
 
   render() {
