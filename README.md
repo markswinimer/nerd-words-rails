@@ -2,25 +2,19 @@
 ![Build Status](https://codeship.com/projects/b495ac30-9f01-0135-8178-6e6128b91f9d/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/markswinimer/nerd-words.png)
 ![Coverage Status](https://coveralls.io/repos/markswinimer/nerd-words/badge.png)
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Nerd Words is my 2017 application created for my capstone project at Launch Academy. It was created in two weeks by myself.
 
-* Ruby version
+It is a full stack web application created using React, Ruby on Rails, and Postgres.
 
-* System dependencies
+Link to the current hosting of the application (hosted on a free Heroku server, will take roughly 30seconds to boot up):
 
-* Configuration
+https://nerd-words.herokuapp.com/
 
-* Database creation
+In progress: my redesign of this project using node:
 
-* Database initialization
+Hosted site:
+http://nerdwordsapp.herokuapp.com/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Github:
+https://github.com/markswinimer/nerd-words
